@@ -26,8 +26,12 @@ export const Content = styled(Form)`
   background: #fff;
   padding: 20px;
 
+  p{
+    text-align: center;
+  }
+
   span{
-    color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.secondary.main};
     font-weight: 800;
     cursor: pointer;
   }
@@ -45,4 +49,9 @@ export const Button = styled.button`
   background: ${props => props.theme.palette.primary.main};
   color: #fff;
   font-weight: 600;
+`
+export const Forgot = styled.div`
+  text-align: center;
+  color: ${props => props.theme.palette.primary.main};
+  cursor: pointer;
 `

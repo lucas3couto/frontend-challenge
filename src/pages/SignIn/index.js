@@ -60,6 +60,13 @@ const Auth = (params) => {
           </S.Button>
         </Grid>
         <Grid item xs={12}>
+          <S.Forgot
+            onClick={() => {}}
+          >
+            Esqueci minha senha.
+          </S.Forgot>
+        </Grid>
+        <Grid item xs={12}>
           <p>Ainda não é cadastrado? <span onClick={() => history.push('/cadastrar')}>Registre-se agora.</span></p>
         </Grid>
       </Grid>

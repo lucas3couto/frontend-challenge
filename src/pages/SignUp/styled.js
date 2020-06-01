@@ -26,6 +26,10 @@ export const Content = styled(Form)`
   background: #fff;
   padding: 20px;
 
+  p{
+    text-align: center;
+  }
+
   span{
     color: ${props => props.theme.palette.primary.main};
     font-weight: 800;

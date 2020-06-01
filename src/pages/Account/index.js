@@ -109,17 +109,7 @@ const Connections = ({ location: { pathname } }) => {
   }
 
   const handleSubmit = async () => {
-    if(value === 0){
-      if(
-        !profile.firstName ||
-        !profile.lastName ||
-        !profile.email
-        ){
-        toast.error('Preencha os campos obrigatórios.')
-      } else {
-        dispatch(updateProfileRequest(profile))
-      }
-    } else {
+    if(value === 1){
       if(
         !address.street ||
         !address.number ||
@@ -131,6 +121,16 @@ const Connections = ({ location: { pathname } }) => {
           toast.error('Preencha os campos obrigatórios.')
       } else {
         dispatch(updateProfileRequest({ address }))
+      }
+    } else {
+      if(
+        !profile.firstName ||
+        !profile.lastName ||
+        !profile.email
+        ){
+        toast.error('Preencha os campos obrigatórios.')
+      } else {
+        dispatch(updateProfileRequest(profile))
       }
     }
     
