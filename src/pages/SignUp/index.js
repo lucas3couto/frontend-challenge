@@ -5,6 +5,7 @@ import { signUpRequest } from '../../store/modules/auth/actions'
 import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import { CircularProgress } from '@material-ui/core';
+import history from '../../services/history'
 
 const Auth = ({ location: { search }}) => {
 
@@ -73,7 +74,9 @@ const Auth = ({ location: { search }}) => {
             name="password"
             label="Senha"
           />
-          <S.Input 
+        </Grid>
+        <Grid item xs={12}>
+        <S.Input 
             type="password"
             name="confirmPassword"
             label="Confirme a senha"
@@ -87,6 +90,9 @@ const Auth = ({ location: { search }}) => {
               "Cadastrar"
             )}
           </S.Button>
+        </Grid>
+        <Grid item xs={12}>
+          <p>Já é cadastrado? <span onClick={() => history.push('/entrar')}>Faça o login.</span></p>
         </Grid>
       </Grid>
       </S.Content>

@@ -10,8 +10,8 @@ import history from '../../services/history'
 const Indications = (params) => {
 
   const [indications, setIndications] = useState(null)  
-  const { id } = useSelector(state => state.user.profile)
-  const url = `${process.env.REACT_APP_APP_URL}/cadastrar?r=${id}`
+  const { referral } = useSelector(state => state.user.profile)
+  const url = `${process.env.REACT_APP_APP_URL}/cadastrar?r=${referral}`
 
   const fetchIndications = async () => {
     const res = await requestIndications()

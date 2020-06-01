@@ -7,7 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 const DatePicker = ({
   onChange,
   value,
-  label
+  label,
+  ...rest
 }) => {
 
   return(
@@ -20,6 +21,7 @@ const DatePicker = ({
       onChange={date => onChange(date)} 
       locale="pt-BR"
       dateFormat="dd/MM/yyyy"
+      {...rest}
     />
     </React.Fragment>
   )

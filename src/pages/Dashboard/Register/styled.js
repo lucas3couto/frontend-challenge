@@ -16,6 +16,19 @@ export const Container = styled.div`
 
 export const Header = styled.div`
 
+  @media(min-width: 768px){
+    width: 100%;
+    height: 300px;
+  }
+
+`
+
+export const Content = styled.div`
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: Center;
 `
 
 export const Main = styled.div`
@@ -38,6 +51,13 @@ export const Card = styled.div`
 
 export const Svg = styled.svg`
   height: 200px;
+
+  @media(min-width: 768px){
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: -100px;
+  }
 `
 
 export const Positions = styled.div`

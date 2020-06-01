@@ -31,11 +31,7 @@ const Profile = ({ match: { params: { username }}}) => {
   },[])
 
   const handlChange = (param) => {
-    if(profile.id === userId){
-      history.push(`/conexoes/${param}`)
-    } else {
-      history.push(`${profile.username}/conexoes/${param}`)
-    }
+    history.push(`${profile.username}/conexoes/${param}`)
   }
 
 
@@ -90,7 +86,7 @@ const Profile = ({ match: { params: { username }}}) => {
         </S.Row>
         <S.Row>
           <S.FollowItem
-            onClick={() => history.push('/conexoes/seguidores')}
+            onClick={() => handlChange("seguidores")}
           >
             <span>{profile.followers}</span>
             <p>Segudores</p>
@@ -98,7 +94,7 @@ const Profile = ({ match: { params: { username }}}) => {
           <S.FollowItem>
             {profile.id === userId ? (
               <S.FollowButton
-                onClick={() => handlChange("seguidores")}
+                onClick={() => history.push('/perfil/editar')}
               >
                 Editar perfil
               </S.FollowButton>

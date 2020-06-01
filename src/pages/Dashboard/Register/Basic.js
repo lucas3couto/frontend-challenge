@@ -3,9 +3,10 @@ import * as S from './styled'
 import { Grid } from '@material-ui/core'
 import * as Yup from 'yup'
 import { Form } from '@unform/web';
-import Input from '../../../components/Input';
+import Input from '../../../components/InputSimple';
 import DatePicker from '../../../components/DatePicker'
 import { toast } from 'react-toastify'
+import { subYears } from 'date-fns';
 
 const Basic = ({
   position,
@@ -13,14 +14,34 @@ const Basic = ({
   previous
 }) => {
 
+  const maskHeight = value => {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{1})(\d{1,2})/, '$1,$2')
+      .replace(/(,\d{2})\d+?$/, '$1')
+  }
+
+  const maskWeight = value => {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{3})\d+?$/, '$1')
+  }
+
+  const format = value => {
+    return value.replace(",","")
+  }
+
   const[birthDate, setBirthDate] = useState(null)
+  const [height, setHeight] = useState('')
+  const [weight, setWeight] = useState('')
 
   const formRef = useRef(null);
   
   const handleSubmit = (data) => {
-    if(data.height && data.weight && birthDate){
+    if(height && weight && birthDate){
       next({
-        ...data,
+        height,
+        weight,
         birthDate
       })
     } else {
@@ -45,20 +66,25 @@ const Basic = ({
               value={birthDate}
               onChange={date => setBirthDate(date)} 
               placeholder="Ex: 01/01/2006"
+              maxDate={subYears(new Date(), 8)}
             />
           </Grid>
           <Grid item xs={12}>
             <Input 
               label="Altura"
               name="height" 
-              placeholder="Ex: 1,73"
+              value={maskHeight(height)}
+              onChange={e => setHeight(format(e.target.value))}
+              right="metros"
             />
           </Grid>
           <Grid item xs={12}>
             <Input 
               label="Peso"
               name="weight" 
-              placeholder="Ex: 73"
+              right="Quilos"
+              value={maskWeight(weight)}
+              onChange={e => setWeight(e.target.value)}
             />
           </Grid>
         </Grid>

@@ -127,12 +127,14 @@ const Register = (params) => {
       </S.Svg>
       </S.Header>
       <S.Main>
-        <Content />
+       <S.Content>
+       <Content />
         <S.Positions>
           <S.Pos active={position === 0 && true}></S.Pos>
           <S.Pos active={position === 1 && true}></S.Pos>
           <S.Pos active={position === 2 && true}></S.Pos>
         </S.Positions>
+       </S.Content>
       </S.Main>
     </S.Container>
   )

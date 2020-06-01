@@ -25,6 +25,12 @@ export const Content = styled(Form)`
   border-radius: 15px;
   background: #fff;
   padding: 20px;
+
+  span{
+    color: ${props => props.theme.palette.primary.main};
+    font-weight: 800;
+    cursor: pointer;
+  }
 `
 
 export const Input = styled(Inp)`

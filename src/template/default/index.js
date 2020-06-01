@@ -1,13 +1,13 @@
 import React from 'react'
 import * as S from './styled'
 import {} from 'react-icons'
-import { MdPerson, MdDashboard, MdNotifications, MdAdd, MdEvent } from 'react-icons/md'
+import { MdPerson, MdSettings, MdDashboard, MdNotifications, MdAdd, MdEvent } from 'react-icons/md'
 import { FaArrowLeft, FaRegFutbol, FaChartBar, FaUserAlt } from 'react-icons/fa'
 import { IoMdListBox } from 'react-icons/io'
 import history from '../../services/history'
 import { useSelector } from 'react-redux'
 
-const Default = ({ children, title, back, land, notification }) => {
+const Default = ({ children, title, back, land, notification, setting }) => {
 
   const path = history.location.pathname
   const { username } = useSelector(state => state.user.profile)
@@ -29,6 +29,9 @@ const Default = ({ children, title, back, land, notification }) => {
         <S.HeaderIcon>
           {notification && (
             <MdNotifications onClick={() => history.push('/notificacoes')} />
+          )}
+          {setting && (
+            <MdSettings onClick={() => history.push('/configuracoes')} />
           )}
         </S.HeaderIcon>
       </S.Header>

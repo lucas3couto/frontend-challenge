@@ -69,6 +69,7 @@ export const FollowItem = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 25px;
+  cursor: pointer;
 
   span{
     font-weight: 800;
@@ -102,6 +103,9 @@ export const Main = styled.div`
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
   padding: 25px;
+  box-shadow: 0 9px 12px 1px rgba(0,0,0,0.14), 0 3px 16px 2px rgba(0,0,0,0.12), 0 5px 6px -3px rgba(0,0,0,0.20);
+
+
 `
 
 export const Score = styled.p`

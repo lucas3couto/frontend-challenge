@@ -6,10 +6,10 @@ export function signInRequest(values) {
   }
 }
 
-export function signInSuccess(token, user, social) {
+export function signInSuccess(token, user, social, address) {
   return {
       type: '@auth/SIGN_IN_SUCCESS',
-      payload: { token, user, social }
+      payload: { token, user, social, address }
   }
 }
 

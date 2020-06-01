@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import * as S from './styled'
 import { Tabs, Tab, Paper, CircularProgress } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
-import { requestFollowing, requestFollowers } from './services'
-import history from '../../services/history'
+import { requestFollowing, requestFollowers, requestAddFollowing, requestUnFollowing } from './services'
+import history from '../../../services/history'
+import { useSelector } from 'react-redux'
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -18,17 +20,22 @@ const TabPanel = (props) => {
 
 const Connections = ({ location: { pathname } }) => {
 
+  const userId = useSelector(state => state.user.profile.id)
+
 
   let [,param] = pathname.split('/conexoes/')
   param = param === "seguindo" ? 1 : 0 
+  let prm = pathname.split('/')
+  
+  const findUser = prm[1]
 
   const [value, setValue] = useState(param)
   const [followers, setFollowers] = useState(null)
   const [following, setFollowing] = useState(null)
 
   const fetch = async () => {
-    const resfollowing = await requestFollowing()
-    const resfollowers = await requestFollowers()
+    const resfollowing = await requestFollowing(findUser)
+    const resfollowers = await requestFollowers(findUser)
     setFollowers(resfollowers.data)
     setFollowing(resfollowing.data)
   }
@@ -44,6 +51,27 @@ const Connections = ({ location: { pathname } }) => {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+
+  const handleFollow = async (id, param) => {
+    if(param === "following"){
+      const res = await requestAddFollowing(id)
+      if(res.status === 200){
+        const idx = following.findIndex(item => item.id == id)
+        let update = [...following]
+        update[idx].isFollowing = true
+        setFollowing(update)
+      }
+    } else {
+      const res = await requestUnFollowing(id)
+      if(res.status === 200){
+        const idx = following.findIndex(item => item.id == id)
+        let update = [...following]
+        update[idx].isFollowing = false
+        setFollowing(update)
+        setFollowing(following)
+      }
+    }
+  }
   
   return(
     <S.Container>
@@ -86,11 +114,13 @@ const Connections = ({ location: { pathname } }) => {
               </div>
             </S.Info>
 
-            <S.Button
+            {item.id !== userId && (
+              <S.Button
               isFollowing={item.isFollowing}
             >
               {item.isFollowing ? 'Seguindo' : 'Seguir'}
             </S.Button>
+            )}
           </S.Item>
           )) : (
            <div>
@@ -105,10 +135,10 @@ const Connections = ({ location: { pathname } }) => {
         </TabPanel>
         <TabPanel value={value} index={1}>
           {following.length > 0 ? following.map((item, idx) => (
-            <S.Item
+            <S.Item>
+            <S.Info
               onClick={() => history.push(`/${item.username}`)}
             >
-            <S.Info>
               <S.Avatar image={item.avatar && item.avatar.url} />
               <div
                 style={{
@@ -122,11 +152,14 @@ const Connections = ({ location: { pathname } }) => {
               </div>
             </S.Info>
 
-            <S.Button
-              isFollowing={true}
+           {item.id !== userId && (
+              <S.Button
+              isFollowing={item.isFollowing}
+              onClick={() => handleFollow(item.id, item.isFollowing ? 'unfollow' : 'following')}
             >
-              Seguindo
+              {item.isFollowing ? 'Seguindo' : 'Seguir'}
             </S.Button>
+           ) }
           </S.Item>
           )) : (
             <p>Você ainda não está seguindo outros jogadores.</p>

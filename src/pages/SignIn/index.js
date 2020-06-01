@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core'
 import { signInRequest } from '../../store/modules/auth/actions'
 import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
+import history from '../../services/history'
 
 const Auth = (params) => {
 
@@ -57,6 +58,9 @@ const Auth = (params) => {
           <S.Button>
             Entrar
           </S.Button>
+        </Grid>
+        <Grid item xs={12}>
+          <p>Ainda não é cadastrado? <span onClick={() => history.push('/cadastrar')}>Registre-se agora.</span></p>
         </Grid>
       </Grid>
       </S.Content>

@@ -8,6 +8,9 @@ export const Container = styled.div`
   padding: 0 15px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  color: ${props => props.theme.palette.gray.main};
+  font-weight: 600;
 
   &:hover{
     border: 2px solid ${props => props.theme.palette.gray.main};
@@ -28,6 +31,8 @@ export const Input = styled.input`
   border: none;
   font-size: 16px;
   background: transparent;
+  color: ${props => props.theme.palette.gray.main};
+  font-weight: 400;
 
   ::-webkit-input-placeholder {
    color: ${props => props.theme.palette.primary.main};
