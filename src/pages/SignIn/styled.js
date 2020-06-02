@@ -31,7 +31,7 @@ export const Content = styled(Form)`
   }
 
   span{
-    color: ${props => props.theme.palette.secondary.main};
+    color: ${props => props.theme.palette.purple.main};
     font-weight: 800;
     cursor: pointer;
   }
@@ -46,12 +46,21 @@ export const Button = styled.button`
   width: 100%;
   height: 40px;
   border-radius: 5px;
-  background: ${props => props.theme.palette.primary.main};
+  background: ${props => props.theme.palette.purple.main};
   color: #fff;
   font-weight: 600;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+
 `
 export const Forgot = styled.div`
   text-align: center;
-  color: ${props => props.theme.palette.primary.main};
+  color: ${props => props.theme.palette.black};
   cursor: pointer;
+  font-weight: 400;
+`
+
+export const Logo = styled.div`
+  img{
+    width: 100px;
+  }
 `

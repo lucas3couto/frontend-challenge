@@ -2,18 +2,18 @@ import styled from 'styled-components'
 import { TextField } from '@material-ui/core'
 
 export const Input = styled(TextField)`
-  border: 2px solid ${props => props.theme.palette.gray.light}!important;
+  border: 2px solid ${props => props.theme.palette.grey.main.light}!important;
   border-radius: 5px;
   width: 100%;
   height: 40px;
   padding: 0 20px;
 
   &:hover{
-    border: 2px solid ${props => props.theme.palette.gray.main};
+    border: 2px solid ${props => props.theme.palette.grey.main.main};
   }
 
   &:focus-within {
-    border: 2px solid ${props => props.theme.palette.primary.main};
+    border: 2px solid ${props => props.theme.palette.purple.main};
   }
 
   ${({ error }) => error && `

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Select, MenuItem } from '@material-ui/core'
 
 export const Container = styled.div`
-  border: 2px solid rgba(0,0,0,0.1);
+  border: 2px solid ${props => props.theme.palette.grey.main};
   border-radius: 5px;
   width: 100%;
   height: 40px;
@@ -11,11 +11,11 @@ export const Container = styled.div`
   flex-direction: row;
 
   &:hover{
-    border: 2px solid rgba(0,0,0,0.4);
+    border: 2px solid ${props => props.theme.palette.grey.main};
   }
 
   &:focus-within {
-    border: 2px solid ${props => props.theme.palette.primary.main};
+    border: 2px solid ${props => props.theme.palette.purple.main};
   }
 
   ${({ error }) => error && `
@@ -28,7 +28,7 @@ export const Input = styled(Select)`
   width: 100%;
   border-bottom: none !important;
   font-size: 16px;
-  color: ${props => props.theme.palette.text};
+  color: ${props => props.theme.palette.grey.main};
 
   ::-webkit-input-placeholder {
    color: rgba(0,0,0,0.2);
@@ -39,14 +39,14 @@ export const Input = styled(Select)`
 }
  
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: ${props => props.theme.palette.gray};  
+   color: ${props => props.theme.palette.grey.main};  
 }
  
 :-ms-input-placeholder {  
-   color: ${props => props.theme.palette.gray};  
+   color: ${props => props.theme.palette.grey.main};  
 }
   &:focus ${Container} {
-    border: 2px solid ${props => props.theme.palette.primary.main}
+    border: 2px solid ${props => props.theme.palette.purple.main}
   }
 `
 

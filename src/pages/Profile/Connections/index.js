@@ -21,11 +21,12 @@ const TabPanel = (props) => {
 const Connections = ({ location: { pathname } }) => {
 
   const userId = useSelector(state => state.user.profile.id)
-
+  const username = useSelector(state => state.user.profile.username)
 
   let [,param] = pathname.split('/conexoes/')
   param = param === "seguindo" ? 1 : 0 
   let prm = pathname.split('/')
+  const lct = pathname.split("/")
   
   const findUser = prm[1]
 
@@ -53,22 +54,42 @@ const Connections = ({ location: { pathname } }) => {
   };
 
   const handleFollow = async (id, param) => {
-    if(param === "following"){
-      const res = await requestAddFollowing(id)
-      if(res.status === 200){
-        const idx = following.findIndex(item => item.id == id)
-        let update = [...following]
-        update[idx].isFollowing = true
-        setFollowing(update)
+    if(value === 0){
+      if(param === "following"){
+        const res = await requestAddFollowing(id)
+        if(res.status === 200){
+          const idx = followers.findIndex(item => item.id == id)
+          let update = [...followers]
+          update[idx].isFollowing = true
+          setFollowers(update)
+        }
+      } else {
+        const res = await requestUnFollowing(id)
+        if(res.status === 200){
+          const idx = followers.findIndex(item => item.id == id)
+          let update = [...followers]
+          update[idx].isFollowing = false
+          setFollowers(update)
+        }
       }
+      
     } else {
-      const res = await requestUnFollowing(id)
-      if(res.status === 200){
-        const idx = following.findIndex(item => item.id == id)
-        let update = [...following]
-        update[idx].isFollowing = false
-        setFollowing(update)
-        setFollowing(following)
+      if(param === "following"){
+        const res = await requestAddFollowing(id)
+        if(res.status === 200){
+          const idx = following.findIndex(item => item.id == id)
+          let update = [...following]
+          update[idx].isFollowing = true
+          setFollowing(update)
+        }
+      } else {
+        const res = await requestUnFollowing(id)
+        if(res.status === 200){
+          const idx = following.findIndex(item => item.id == id)
+          let update = [...following]
+          update[idx].isFollowing = false
+          setFollowing(update)
+        }
       }
     }
   }
@@ -98,9 +119,10 @@ const Connections = ({ location: { pathname } }) => {
         <TabPanel value={value} index={0}>
         {followers.length > 0 ? followers.map((item, idx) => (
             <S.Item
+            >
+            <S.Info
               onClick={() => history.push(`/${item.username}`)}
             >
-            <S.Info>
               <S.Avatar image={item.avatar && item.avatar.url} />
               <div
                 style={{
@@ -117,6 +139,7 @@ const Connections = ({ location: { pathname } }) => {
             {item.id !== userId && (
               <S.Button
               isFollowing={item.isFollowing}
+              onClick={() => handleFollow(item.id, item.isFollowing ? 'unfollow' : 'following')}
             >
               {item.isFollowing ? 'Seguindo' : 'Seguir'}
             </S.Button>
@@ -124,7 +147,13 @@ const Connections = ({ location: { pathname } }) => {
           </S.Item>
           )) : (
            <div>
+             {lct[1] === username ? (
+
               <p>Você ainda não possúi seguidores.</p>
+             ) : (
+
+              <p>O usuário ainda não possúi seguidores.</p>
+             )}
             <S.Indication
               onClick={() => history.push('/indicacoes')}
             >
@@ -162,7 +191,14 @@ const Connections = ({ location: { pathname } }) => {
            ) }
           </S.Item>
           )) : (
-            <p>Você ainda não está seguindo outros jogadores.</p>
+            <React.Fragment>
+              {lct[1] === username ? (
+              <p>Você ainda não está seguindo alguém..</p>
+              ) : (
+              
+              <p>O usuário ainda não está seguindo alguém.</p>
+              )}
+            </React.Fragment>
           )}
         </TabPanel>
       </SwipeableViews>

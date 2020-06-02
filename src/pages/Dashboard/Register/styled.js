@@ -8,7 +8,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 100%;
   display: flex;
-  background: ${props => props.theme.palette.primary.main};
+  background: ${props => props.theme.palette.purple.main};
   z-index: 100;
   flex-direction: column;
   overflow-x: hidden;
@@ -90,12 +90,12 @@ export const Button = styled.button`
   min-width: 100px;
   border-radius: 5px;
   font-weight: 800;
-  background: ${props => props.theme.palette.gray.light};
-  color: ${props => props.theme.palette.gray.main};
+  background: ${props => props.theme.palette.grey.main.light};
+  color: ${props => props.theme.palette.grey.main.main};
 
   ${({ next, theme }) => next && `
-    background: ${theme.palette.secondary.main};
-    color: #fff;
+    background: #fff;
+    color: ${theme.palette.purple.main};
   `}
 
 `

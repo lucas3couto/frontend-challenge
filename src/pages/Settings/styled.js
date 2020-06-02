@@ -42,18 +42,19 @@ export const Item = styled.div`
   padding: 15px 0;
   width: 100%;
   flex-direction: row;
-  color: ${props => props.theme.palette.gray.main};
+  color: ${props => props.theme.palette.grey.main.main};
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.palette.gray.light};
+  border-bottom: 1px solid ${props => props.theme.palette.grey.light};
   cursor: pointer;
 
   svg{
-    font-size: 24px;
+    font-size: 20px;
     margin-right: 15px;
+    color: ${props => props.theme.palette.grey.main};
   }
 
   p{
-    color: ${props => props.theme.palette.gray.main};
+    color: ${props => props.theme.palette.grey.main};
     font-weight: 400;
     font-size: 18px;
   }

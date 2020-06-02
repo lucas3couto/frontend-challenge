@@ -49,9 +49,12 @@ const Preferences = ({
       <Grid container spacing={3}>
       <Grid item xs={12}>
       <Autocomplete
+      stule={{
+        border: "2px solid #555 !important"
+      }}
         options={teams}
         getOptionLabel={(option) => option.name + '-' + option.state}
-        renderInput={(params) => <TextField {...params} label="Time Preferido" />}
+        renderInput={(params) => <Input {...params} label="Time Preferido" />}
         onChange={(e, v) => setFanTeam(v ? v._id : null)}
       />
       </Grid>
@@ -59,13 +62,13 @@ const Preferences = ({
       <Autocomplete
         options={brands}
         getOptionLabel={(option) => option.name}
-        renderInput={(params) => <TextField {...params} label="Marca Preferida" />}
+        renderInput={(params) => <Input {...params} label="Marca Preferida" />}
         onChange={(e, v) => setPreferedBrand(v ? v._id : null)}
       />
       </Grid>
       <Grid item xs={12}>
         <Input 
-          label="Chuteira que usa"
+          label="Modelo de chuteira que usa"
           onChange={e => setBrandBoot(e.target.value)}
           value={brandBoot}
         />

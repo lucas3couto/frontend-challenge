@@ -43,7 +43,7 @@ export const Avatar = styled.div`
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background: ${props => props.theme.palette.gray.main};
+  background: ${props => props.theme.palette.grey.main.main};
 
   background-image: url(${props => props.image});
   background-size: cover;
@@ -64,19 +64,19 @@ export const Username = styled.h1`
 `
 
 export const Link = styled.div`
-  color:${props => props.theme.palette.primary.main};
+  color:${props => props.theme.palette.purple.main};
   font-weight: 600;
 `
 
 export const Label = styled.div`
   font-size: 14px;
-  color: ${props => props.theme.palette.gray.main};
+  color: ${props => props.theme.palette.grey.main.main};
 `
 
 export const Input = styled.input`
   border: none;
   padding: 10px 0;
-  border-bottom: 1px solid ${props => props.theme.palette.gray.light};
+  border-bottom: 1px solid ${props => props.theme.palette.grey.main.light};
 
   ${({ error }) => error && `
     border-bottom: 1px solid red;
@@ -86,7 +86,7 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   border: none;
   padding: 10px 0;
-  border-bottom: 1px solid ${props => props.theme.palette.gray.light};
+  border-bottom: 1px solid ${props => props.theme.palette.grey.main.light};
 
   ${({ error }) => error && `
     border-bottom: 1px solid red;
@@ -100,7 +100,7 @@ export const Title = styled.h1`
 export const SelectComponent = styled(Select)`
   border: none;
   padding: 10px 0 !important;
-  border-bottom: 1px solid ${props => props.theme.palette.gray.light} !important;
+  border-bottom: 1px solid ${props => props.theme.palette.grey.main.light} !important;
 
   ${({ error }) => error && `
     border-bottom: 1px solid red;
@@ -117,7 +117,7 @@ export const Button = styled.div`
   align-items: center;
   justify-content: center;
   height: 35px;
-  background: ${props => props.theme.palette.primary.main};
+  background: ${props => props.theme.palette.purple.main};
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
   color: #fff;
   width: 150px;

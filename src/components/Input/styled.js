@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  border: 2px solid ${props => props.theme.palette.gray.light};
+  border: 2px solid ${props => props.theme.palette.grey.main};
   border-radius: 5px;
   width: 100%;
   height: 40px;
@@ -10,11 +10,11 @@ export const Container = styled.div`
   flex-direction: row;
 
   &:hover{
-    border: 2px solid ${props => props.theme.palette.gray.main};
+    border: 2px solid ${props => props.theme.palette.grey.main};
   }
 
   &:focus-within {
-    border: 2px solid ${props => props.theme.palette.primary.main};
+    border: 2px solid ${props => props.theme.palette.purple.main};
   }
 
   ${({ error }) => error && `
@@ -28,13 +28,14 @@ export const Input = styled.input`
   border: none;
   font-size: 16px;
   background: transparent;
+  color: ${props => props.theme.palette.black};
 
   ::-webkit-input-placeholder {
-   color: ${props => props.theme.palette.primary.main};
+   color: ${props => props.theme.palette.purple.main};
 }
  
 :-moz-placeholder { /* Firefox 18- */
-   color: ${props => props.theme.palette.primary.main};  
+   color: ${props => props.theme.palette.purple.main};  
 }
  
 ::-moz-placeholder {  /* Firefox 19+ */

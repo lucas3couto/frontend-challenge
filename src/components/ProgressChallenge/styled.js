@@ -5,17 +5,17 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid ${props => props.theme.palette.gray.light};
+  border: 1px solid rgb(207, 216, 220);
   border-radius: 15px;
 
   h1{
     font-size: 18px;
-    color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.purple.main};
   }
 
   p{
     font-size: 14px;
-    color: ${props => props.theme.palette.gray.main};
+    color: ${props => props.theme.palette.grey.main.main};
     margin: 10px 0;
   }
 `
@@ -41,7 +41,7 @@ export const Item = styled.div`
 
   span{
     font-weight: 800;
-    color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.pink};
   }
 `
 
@@ -52,10 +52,10 @@ export const Icon = styled.div`
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-image: linear-gradient( #00c6ff, #0072ff);
+  background: ${props => props.theme.palette.pink};
 
   ${({ completed, theme }) => completed && `
-    background: ${theme.palette.gray.main};
+    background: ${theme.palette.grey.main.main};
   `}
 
   svg{
@@ -70,14 +70,14 @@ export const Progress = styled.div`
 export const Bar = styled(LinearProgress)`
   height: 20px !important;
   border-radius: 20px !important;
-  background-image: ${props => props.theme.palette.gray.light};
+  background: ${props => props.theme.palette.purple.light} !important;
 
   .MuiLinearProgress-barColorPrimary{
-    background-image: linear-gradient( #00c6ff, #0072ff);
+    background: ${props => props.theme.palette.purple.main};
   }
 `
 
 export const Concluded = styled.p`
-  color: ${props => props.theme.palette.primary.main} !important;
+  color: ${props => props.theme.palette.purple.main} !important;
   font-weight: 800 !important;
 `

@@ -6,6 +6,7 @@ import { MdCloudUpload } from 'react-icons/md'
 import ProgressChallenge from '../../components/ProgressChallenge'
 import history from '../../services/history'
 import { requestIndications } from './services'
+import Card from '../../components/Card'
 
 const Dashboard = (params) => {
 
@@ -36,13 +37,13 @@ const Dashboard = (params) => {
             marginBottom: 25
           }}
          />
-        <S.Card>
+        <Card>
           <h1>Em Breve</h1>
           <S.Row>
             <MdCloudUpload />
             <p>Upload de vídeos</p>
           </S.Row>
-        </S.Card>
+        </Card>
        </S.Content>
       </S.Container>
       {!registered && !admin && (

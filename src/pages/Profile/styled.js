@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex: 1;
-  background: ${props => props.theme.palette.primary.main};
+  background: ${props => props.theme.palette.purple.main};
   height: 100%;
 
   @media(min-width: 768px){
@@ -28,6 +28,14 @@ export const Header = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 15px 0;
+  
+  p{
+    color: #fff !important;
+  }
+
+  svg{
+    color: #fff !important;
+  }
 
   h1{
     font-size: 20px;
@@ -85,11 +93,13 @@ export const FollowButton = styled.div`
   align-items: center;
   justify-content: space-around;
   border-radius: 15px;
-  background: ${props => props.theme.palette.blue.main};
+  background: ${props => props.theme.palette.pink};
   min-width: 100px;
   height: 30px;
   padding: 0 10px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
 
   svg{
     margin: 0;

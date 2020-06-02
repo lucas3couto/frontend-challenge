@@ -31,9 +31,17 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  h1, h2, h3, p {
-    color: ${props => props.theme.palette.text}
+  h1, h2, h3 {
+    color: ${props => props.theme.palette.black};
   } 
+
+  svg{
+    color: ${props => props.theme.palette.purple.main}
+  }
+
+  p{
+    color: ${props => props.theme.palette.grey.main.light};
+  }
 
   .rdw-editor-wrapper {
     border: 1px solid ${props => props.theme.palette.background} !important;

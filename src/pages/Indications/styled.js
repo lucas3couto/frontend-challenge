@@ -39,7 +39,7 @@ export const Main = styled.div`
 
   p{
     font-size: 14px;
-    color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.purple.main};
     font-weight: 600;
   }
 `
@@ -48,7 +48,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-image: linear-gradient( #00c6ff, #0072ff);
+  background: ${props => props.theme.palette.purple.main};
   color: #fff;
   max-width: 500px;
   border-radius: 5px;
@@ -57,6 +57,7 @@ export const Card = styled.div`
   
   h1{
     font-size: 14px;
+    color: #fff;
   }
 
   p{
@@ -84,7 +85,7 @@ export const Link = styled.div`
   button{
     bordeR: none;
     height: 35px;
-    background: ${props => props.theme.palette.primary.main};
+    background: ${props => props.theme.palette.purple.main};
     color: #fff;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
     width: 200px;
@@ -95,12 +96,12 @@ export const Link = styled.div`
 export const LinkInput = styled.input`
   padding: 15px;
   border: none;
-  border-bottom: 2px solid ${props => props.theme.palette.gray.main};
+  border-bottom: 2px solid ${props => props.theme.palette.grey.main.main};
   margin-bottom: 10px;
 
   ${({ copySuccess, theme }) => copySuccess && `
-    background: ${theme.palette.gray.light};
-    color: ${theme.palette.primary.main};
+    background: rgba(114, 110, 255, 0.3);
+    color: ${theme.palette.purple.main};
     font-weight: 800;
   `}
 `

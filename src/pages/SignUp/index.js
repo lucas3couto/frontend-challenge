@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import { CircularProgress } from '@material-ui/core';
 import history from '../../services/history'
+import Logo from '../../assets/img/logo.svg'
 
 const Auth = ({ location: { search }}) => {
 
@@ -31,7 +32,7 @@ const Auth = ({ location: { search }}) => {
         abortEarly: false,
       });
       // Validation passed
-      dispatch(signUpRequest(data, indicated))
+      dispatch(signUpRequest(data, indicated && indicated))
       reset()
     } catch (err) {
       setLoading(false)
@@ -47,6 +48,9 @@ const Auth = ({ location: { search }}) => {
   
   return(
     <S.Container>
+      <S.Logo>
+        <img src={Logo} />
+      </S.Logo>
       <h1>Cadastre-se</h1>
       <S.Content ref={formRef} onSubmit={handleSubmit}>
       <Grid container spacing={3}>

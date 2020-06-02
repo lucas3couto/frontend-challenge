@@ -43,7 +43,7 @@ export const Main = styled.div`
 
   p{
     font-size: 14px;
-    color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.purple.main};
     font-weight: 600;
   }
 `
@@ -67,7 +67,7 @@ export const Avatar = styled.div`
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background: ${props => props.theme.palette.gray.main};
+  background: ${props => props.theme.palette.grey.main.main};
   margin-right: 20px;
 
   background-image: url(${props => props.image});
@@ -79,13 +79,13 @@ export const Info = styled.div`
   flex-direction: row;
 
   span{
-    color: ${props => props.theme.palette.gray.main};
+    color: ${props => props.theme.palette.grey.main.main};
   }
 `
 
 export const Button = styled.button`
   border: none;
-  background: ${props => props.theme.palette.primary.main};
+  background: ${props => props.theme.palette.pink};
   color: #fff;
   width: 100px;
   height: 25px;
@@ -93,7 +93,7 @@ export const Button = styled.button`
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
 
   ${({ isFollowing, theme }) => isFollowing && `
-    background: ${theme.palette.gray.main};
+    background: ${theme.palette.grey.main.main};
   `}
 
   ${({ fullwidth }) => fullwidth && `

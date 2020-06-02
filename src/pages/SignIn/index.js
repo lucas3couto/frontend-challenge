@@ -5,6 +5,7 @@ import { signInRequest } from '../../store/modules/auth/actions'
 import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import history from '../../services/history'
+import Logo from '../../assets/img/logo-vertical.svg'
 
 const Auth = (params) => {
 
@@ -38,6 +39,9 @@ const Auth = (params) => {
   
   return(
     <S.Container>
+      <S.Logo>
+        <img src={Logo} />
+      </S.Logo>
       <h1>Faça o Login</h1>
       <S.Content ref={formRef} onSubmit={handleSubmit}>
       <Grid container spacing={3}>

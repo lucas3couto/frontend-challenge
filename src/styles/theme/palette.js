@@ -1,21 +1,25 @@
 
 export default {
   primary: {
-    main: '#1F299C',
+    main: '#726EFF',
   },
   secondary: {
-    main: '#F25929',
+    main: '#5AFFE7',
+    dark: '#08C6AB'
   },
-  gray: {
-    light: '#E0EAF8',
-    main: '#787CA9',
-  },
-  blue: {
-    light: '#30D1FF',
-    main: '#0373FF',
-    dark: '#16215B'
+  white: '#F7F6Fb',
+  grey: {
+    light: '#EDEDED',
+    main: '#6D6D6D'
   },
   purple: {
-    light: '#A3A9F5'
-  }
+    light: '#F0E8FF',
+    main: '#640FFF',
+    dark: '#4E00DB',
+  },
+  pink: '#FF2C68',
+  yellow: '#FFC552', 
+  black: "#000000",
+  green: "#198E8E",
+
 };

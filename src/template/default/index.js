@@ -6,8 +6,8 @@ import { FaArrowLeft, FaRegFutbol, FaChartBar, FaUserAlt } from 'react-icons/fa'
 import { IoMdListBox } from 'react-icons/io'
 import history from '../../services/history'
 import { useSelector } from 'react-redux'
-
-const Default = ({ children, title, back, land, notification, setting }) => {
+import Logo from '../../assets/img/icon.svg'
+const Default = ({ children, title, back, land, notification, setting, logo }) => {
 
   const path = history.location.pathname
   const { username } = useSelector(state => state.user.profile)
@@ -16,6 +16,11 @@ const Default = ({ children, title, back, land, notification, setting }) => {
     <S.Container>
       <S.Header>
         <div>
+          {
+            logo && <S.Logo>
+              <img src={Logo} />
+            </S.Logo>
+          }
           {back && (
             <S.HeaderIcon
               onClick={() => history.goBack()}

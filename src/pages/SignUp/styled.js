@@ -31,7 +31,7 @@ export const Content = styled(Form)`
   }
 
   span{
-    color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.purple.main};
     font-weight: 800;
     cursor: pointer;
   }
@@ -46,7 +46,13 @@ export const Button = styled.button`
   width: 100%;
   height: 40px;
   border-radius: 5px;
-  background: ${props => props.theme.palette.primary.main};
+  background: ${props => props.theme.palette.purple.main};
   color: #fff;
   font-weight: 600;
+`
+
+export const Logo = styled.div`
+  img{
+    width: 140px;
+  }
 `

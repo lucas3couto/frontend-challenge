@@ -38,7 +38,7 @@ export const Main = styled.div`
 
   p{
     font-size: 14px;
-    color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.purple.main};
     font-weight: 600;
   }
 `

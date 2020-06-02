@@ -17,7 +17,7 @@ export default function Input({ label, right, error,  Icon, ...rest }) {
       {label}
     </S.Label>
     <S.Container
-      error={err(error)}
+      error={error && err(error)}
     >
       {Icon && <Icon color="#ab99c0" style={{ marginRight: 5}} size={24} />}
       <S.Input {...rest} />
