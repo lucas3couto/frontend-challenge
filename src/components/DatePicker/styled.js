@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import ReactDatePicker from 'react-datepicker'
 
 export const Container = styled(ReactDatePicker)`
-  border: 2px solid ${props => props.theme.palette.grey.main};
+  border: 2px solid ${props => props.theme.palette.grey.light};
   border-radius: 5px;
   width: 100%;
   height: 40px;

@@ -37,7 +37,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy-production": "react-scripts build && scp -r ./build/* lucas@161.35.13.126 :/var/www/app.drafterr.com.br/html"
+
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  border: 2px solid ${props => props.theme.palette.grey.main};
+  border: 2px solid ${props => props.theme.palette.grey.light};
   border-radius: 5px;
   width: 100%;
   height: 40px;
