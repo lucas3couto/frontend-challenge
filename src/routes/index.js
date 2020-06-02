@@ -20,8 +20,8 @@ const Routes = () => (
     <Route path="/entrar" exact component={SignIn}/>
     <Route path="/cadastrar" exact component={SignUp}/>
     <Route path="/" logo exact component={Dashboard} notification isPrivate/>
-    <Route path="/feed" exact component={Feed} isPrivate/>
-    <Route path="/eventos" exact component={Events} isPrivate/>
+    <Route path="/feed" back exact component={Feed} isPrivate/>
+    <Route path="/eventos" back exact component={Events} isPrivate/>
     <Route path="/perfil/editar" exact component={EditProfile} isPrivate back land/>
     <Route path="/minha-conta" exact component={Account} isPrivate back land/>
     <Route path="/notificacoes" exact component={Notification} isPrivate land back/>

@@ -60,7 +60,12 @@ export const Forgot = styled.div`
 `
 
 export const Logo = styled.div`
+  background-image: url(${props => props.image});
+  background-repeat: no-repeat;
+  height: 50px;
+  width: auto;
+
   img{
-    width: 100px;
+    width: 200px;
   }
 `

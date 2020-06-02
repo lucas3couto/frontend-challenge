@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import { CircularProgress } from '@material-ui/core';
 import history from '../../services/history'
-import Logo from '../../assets/img/logo.svg'
+import Logo from '../../assets/img/logo-white.svg'
 
 const Auth = ({ location: { search }}) => {
 

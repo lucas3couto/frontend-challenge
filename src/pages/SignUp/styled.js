@@ -9,6 +9,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   padding: 25px;
+  margin: 100px 0;
 
   h1{
     margin: 25px 0;
@@ -54,6 +55,6 @@ export const Button = styled.button`
 
 export const Logo = styled.div`
   img{
-    width: 140px;
+    width: 200px;
   }
 `
