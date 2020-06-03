@@ -70,7 +70,7 @@ const Auth = (params) => {
         </Grid>
         <Grid item xs={12}>
           <S.Forgot
-            onClick={() => {}}
+            onClick={() => history.push("/esqueceu-a-senha")}
           >
             Esqueci minha senha.
           </S.Forgot>

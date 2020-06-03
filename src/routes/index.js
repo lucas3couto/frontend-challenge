@@ -14,11 +14,13 @@ import Indications from '../pages/Indications'
 import ProfileConnections from '../pages/Profile/Connections'
 import Settings from '../pages/Settings'
 import Account from '../pages/Account'
+import ForgotPassord from '../pages/ForgotPassword'
 
 const Routes = () => (
   <Switch>
     <Route path="/entrar" exact component={SignIn}/>
     <Route path="/cadastrar" exact component={SignUp}/>
+    <Route path="/esqueceu-a-senha" exact component={ForgotPassord} blank/>
     <Route path="/" logo exact component={Dashboard} notification isPrivate/>
     <Route path="/feed" back exact component={Feed} isPrivate/>
     <Route path="/eventos" back exact component={Events} isPrivate/>
