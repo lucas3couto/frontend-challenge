@@ -93,7 +93,7 @@ const ForgotPassword = (params) => {
         {validation ? 'Validação' : 'Esqueceu sua senha?'}
       </h1>
       <h3>
-        {validation ? 'Insira com o código de validação que foi enviado para seu email.' : 'Insira com o email vinculado a sua conta.'}
+        {validation ? 'Insira o código de validação que foi enviado para seu email.' : 'Insira com o email vinculado a sua conta.'}
       </h3>
       {!validation && (
         <p>Enviaremos um email para que você possa resetar a sua senha.</p>
