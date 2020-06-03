@@ -43,7 +43,7 @@ export const Avatar = styled.div`
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background: ${props => props.theme.palette.grey.main.main};
+  background: ${props => props.theme.palette.grey.light};
 
   background-image: url(${props => props.image});
   background-size: cover;
@@ -66,6 +66,7 @@ export const Username = styled.h1`
 export const Link = styled.div`
   color:${props => props.theme.palette.purple.main};
   font-weight: 600;
+  cursor: pointer;
 `
 
 export const Label = styled.div`

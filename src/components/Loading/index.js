@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { CircularProgress } from '@material-ui/core'
 
 const Container = styled.div`
   position: absolute;
@@ -17,7 +18,7 @@ const Container = styled.div`
 const Loading = (params) => {
   return(
     <Container>
-      <h1>Loading</h1>
+      <CircularProgress />
     </Container>
   )
 }
