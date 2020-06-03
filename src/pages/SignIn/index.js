@@ -6,9 +6,12 @@ import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import history from '../../services/history'
 import Logo from '../../assets/img/logo-white.svg'
+import { useSelector } from 'react-redux'
+import { CircularProgress } from '@material-ui/core'
 
 const Auth = (params) => {
 
+  const { loading  } = useSelector(state => state.auth)
   const formRef = useRef(null);
   const dispatch = useDispatch()
 
@@ -59,8 +62,10 @@ const Auth = (params) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <S.Button>
-            Entrar
+          <S.Button
+            disabled={loading}
+          >
+            {loading ? <CircularProgress size={30} /> : 'Entrar'}
           </S.Button>
         </Grid>
         <Grid item xs={12}>

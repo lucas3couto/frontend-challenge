@@ -7,18 +7,19 @@ import * as Yup from 'yup'
 import { CircularProgress } from '@material-ui/core';
 import history from '../../services/history'
 import Logo from '../../assets/img/logo-white.svg'
+import { useSelector } from 'react-redux'
 
 const Auth = ({ location: { search }}) => {
 
   const [,indicated] = search.split("?r=")
 
+  const { loading  } = useSelector(state => state.auth)
+
   const formRef = useRef(null);
   const dispatch = useDispatch()
-  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (data, { reset }) => {
     try {
-      setLoading(true)
       // Remove all previous errors
       formRef.current.setErrors({});
       const schema = Yup.object().shape({
@@ -35,7 +36,6 @@ const Auth = ({ location: { search }}) => {
       dispatch(signUpRequest(data, indicated && indicated))
       reset()
     } catch (err) {
-      setLoading(false)
       const validationErrors = {};
       if (err instanceof Yup.ValidationError) {
         err.inner.forEach(error => {
@@ -87,9 +87,11 @@ const Auth = ({ location: { search }}) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <S.Button>
+          <S.Button
+            disabled={loading}
+          >
             {loading ? (
-              <CircularProgress />
+              <CircularProgress size={30} />
             ) : (
               "Cadastrar"
             )}

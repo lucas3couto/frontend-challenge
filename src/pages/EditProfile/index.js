@@ -40,6 +40,23 @@ const EditProfile = (params) => {
     }
   }
 
+  const maskHeight = value => {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{1})(\d{1,2})/, '$1,$2')
+      .replace(/(,\d{2})\d+?$/, '$1')
+  }
+
+  const maskWeight = value => {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{3})\d+?$/, '$1')
+  }
+
+  const format = value => {
+    return value.replace(",","")
+  }
+
 
 
   const fetchAwait = async () => {
@@ -186,6 +203,38 @@ const EditProfile = (params) => {
           Atributos
         </S.Title>
       </S.Row>
+      <S.Col item xs={12}>
+           <S.Label>Alture</S.Label>
+            <S.Input 
+              label="Altura"
+              name="height" 
+              value={maskHeight(user.playerData.height)}
+              onChange={e => setUser({
+                ...user,
+                playerData: {
+                  ...user.playerData,
+                  height: format(e.target.value)
+                }
+              })}
+              right="metros"
+            />
+          </S.Col>
+          <S.Col item xs={12}>
+           <S.Label>Peso</S.Label>
+            <S.Input 
+              label="Peso"
+              name="weight" 
+              value={maskWeight(user.playerData.weight)}
+              onChange={e => setUser({
+                ...user,
+                playerData: {
+                  ...user.playerData,
+                  weight: format(e.target.value)
+                }
+              })}
+              right="Quilos"
+            />
+          </S.Col>
       <S.Col>
         <S.Label>Melhor pé</S.Label>
         <S.SelectComponent

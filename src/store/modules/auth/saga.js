@@ -3,7 +3,7 @@ import api from '../../../services/api'
 import history from '../../../services/history'
 import { toast } from 'react-toastify'
 
-import { signInSuccess, signFailure } from "./actions";
+import { signInSuccess, signFailure, signUpSuccess } from "./actions";
 
 export function* signIn({ payload }) {
   try {
@@ -39,6 +39,7 @@ export function* signUp({ payload }) {
         confirmPassword
     });
     toast.success('Pronto! Você foi cadastrado com sucesso.')
+    yield put(signUpSuccess())
     history.push("/");
   } catch (err) {
     toast.error("Falha no cadastro, verifique seus dados");

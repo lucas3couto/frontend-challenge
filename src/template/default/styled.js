@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex: 1;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   background: ${props => props.theme.palette.purple.main};
 `
 

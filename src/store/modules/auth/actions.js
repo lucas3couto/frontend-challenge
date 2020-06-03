@@ -31,3 +31,9 @@ export function signUpRequest(data, indicated) {
     payload: { data, indicated}
   };
 }
+
+export function signUpSuccess() {
+  return {
+    type: "@auth/SIGN_UP_SUCCESS",
+  };
+}
