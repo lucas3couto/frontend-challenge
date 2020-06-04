@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%;
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
+  margin: 0 10px;
 
   svg{
     margin-right: 10px;
@@ -14,5 +15,6 @@ export const Container = styled.div`
 input{
   border: none;
   font-size: 20px;
+  width: 100%;
 }
 `
