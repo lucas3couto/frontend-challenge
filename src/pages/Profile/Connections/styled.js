@@ -67,7 +67,7 @@ export const Avatar = styled.div`
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background: ${props => props.theme.palette.grey.main.main};
+  background: ${props => props.theme.palette.grey.main};
   margin-right: 20px;
 
   background-image: url(${props => props.image});
