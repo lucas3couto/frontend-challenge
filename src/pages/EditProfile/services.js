@@ -16,8 +16,7 @@ const requestBrands = async () => {
 }
 
 const requestUploadImage = async (data) => {
-  console.log('service',data)
-  const res = await api.post('/api/upload/image', data )
+  const res = await api.post('/api/upload/file', data )
   return res
 }
 

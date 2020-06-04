@@ -29,6 +29,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: Center;
+  min-height: 100%;
 `
 
 export const Main = styled.div`
@@ -37,6 +38,7 @@ export const Main = styled.div`
   align-items: center;
   justify-content: center;
   padding: 20px;
+  min-height: 100%;
 `
 
 export const Card = styled.div`

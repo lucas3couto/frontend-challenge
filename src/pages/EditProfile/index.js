@@ -125,7 +125,7 @@ const EditProfile = (params) => {
 
   const processUpload = async (upload) => {
     const data = await new FormData();
-    data.append("image", upload.file, upload.name);
+    data.append("file", upload.file, upload.name);
     setLoadingAvatar(true)
     const res = await requestUploadImage(data)
     if(res.status === 200){
