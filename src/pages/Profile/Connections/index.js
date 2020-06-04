@@ -154,11 +154,13 @@ const Connections = ({ location: { pathname } }) => {
 
               <p>O usuário ainda não possúi seguidores.</p>
              )}
-            <S.Indication
+            {lct[1] === username && (
+              <S.Indication
               onClick={() => history.push('/indicacoes')}
             >
               Indicar amigo
             </S.Indication>
+            )}
            </div>
           )}
         </TabPanel>
