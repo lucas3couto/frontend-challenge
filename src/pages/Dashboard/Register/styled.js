@@ -5,13 +5,13 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   bottom: 0;
-  height: 100%;
   width: 100%;
   display: flex;
   background: ${props => props.theme.palette.purple.main};
   z-index: 100;
   flex-direction: column;
   overflow-x: hidden;
+  min-height: 100%;
 `
 
 export const Header = styled.div`

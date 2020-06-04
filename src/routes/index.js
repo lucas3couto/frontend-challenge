@@ -16,6 +16,7 @@ import Settings from '../pages/Settings'
 import Account from '../pages/Account'
 import ForgotPassord from '../pages/ForgotPassword'
 import Search from '../pages/Search'
+import Media from '../pages/ViewMedia'
 
 const Routes = () => (
   <Switch>
@@ -33,6 +34,7 @@ const Routes = () => (
     <Route path="/procurar" exact component={Search} isPrivate layout="blank"/>
     <Route path="/:username" exact component={Profile} isPrivate back setting/>
     <Route path="/:username/conexoes" component={ProfileConnections} back isPrivate/>
+    <Route path="/:username/midia/:id" component={Media} layout="blank" isPrivate/>
   </Switch>
 )
 

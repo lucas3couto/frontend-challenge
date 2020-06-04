@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as S from './styled'
 import {} from 'react-icons'
 import { MdPerson, MdSettings, MdDashboard, MdNotifications, MdAdd, MdEvent, MdSearch } from 'react-icons/md'
@@ -7,13 +7,34 @@ import { IoMdListBox } from 'react-icons/io'
 import history from '../../services/history'
 import { useSelector } from 'react-redux'
 import Logo from '../../assets/img/icon.svg'
+import UploadContent from '~/components/UploadContent'
+import { requestContent } from './services'
+import { toast } from 'react-toastify'
+
 const Default = ({ children, title, back, land, notification, setting, logo }) => {
 
   const path = history.location.pathname
   const { username } = useSelector(state => state.user.profile)
 
+  const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = async (data) => {
+    setLoading(true)
+    const response = await requestContent(data)
+    console.log(response)
+    if(response.status === 200){
+      toast.success('Conteúdo salvo com sucesso')
+      setOpen(false)
+    } else {
+      toast.error(response.message)
+    }
+    setLoading(false)
+  }
+
   return(
-    <S.Container>
+    <React.Fragment>
+      <S.Container>
       <S.Header>
         <div>
           {
@@ -62,6 +83,7 @@ const Default = ({ children, title, back, land, notification, setting, logo }) =
         </S.MenuBottomItem>
         <S.MenuBottomItem
           more={true}
+          onClick={() => setOpen(true)}
         >
           <MdAdd />
         </S.MenuBottomItem>
@@ -80,6 +102,8 @@ const Default = ({ children, title, back, land, notification, setting, logo }) =
       </S.MenuBottomContent>
       </S.MenuBottom>
     </S.Container>
+    <UploadContent open={open} close={() => setOpen(false)} submit={handleSubmit} loading={loading} />
+    </React.Fragment>
   )
 }
 

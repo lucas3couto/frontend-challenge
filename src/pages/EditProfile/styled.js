@@ -3,7 +3,7 @@ import { Select } from '@material-ui/core'
 
 export const Container = styled.div`
   display: flex;
-  flex: 1;
+  min-height: 100%;
   padding: 25px;
 
   @media(min-width: 768px){

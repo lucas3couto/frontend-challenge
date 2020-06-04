@@ -8,6 +8,7 @@ import { requestProfile, requestFollowing, requestunFollowing } from './services
 import Loading from '../../components/Loading'
 import { useSelector } from 'react-redux'
 import history from '../../services/history'
+import Content from './Content'
 
 
 const Profile = ({ match: { params: { username }}}) => {
@@ -84,7 +85,7 @@ const Profile = ({ match: { params: { username }}}) => {
             </React.Fragment>
           ) : <S.Score>Score: <span>{profile.score}</span></S.Score>}
         </S.Row>
-        <S.Row>
+        <S.Socials >
           <S.FollowItem
             onClick={() => handlChange("seguidores")}
           >
@@ -96,7 +97,7 @@ const Profile = ({ match: { params: { username }}}) => {
               <S.FollowButton
                 onClick={() => history.push('/perfil/editar')}
               >
-                Editar perfil
+                EDITAR
               </S.FollowButton>
             ) : (
               <S.FollowButton onClick={handleFollow}>
@@ -117,9 +118,10 @@ const Profile = ({ match: { params: { username }}}) => {
             <span>{profile.following}</span>
             <p>Seguindo</p>
           </S.FollowItem>
-        </S.Row>
+        </S.Socials>
       </S.Header>
       <S.Main>
+        <Content username={profile.username} content={profile.content} />
         <Biografy 
           profile={profile}
         />

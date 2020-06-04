@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex: 1;
   background: ${props => props.theme.palette.purple.main};
-  height: 100%;
+  min-height: 100%;
 
   @media(min-width: 768px){
    align-content: center;
@@ -27,7 +27,7 @@ export const Header = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 15px 0;
+  margin: 15px 25px;
   
   p{
     color: #fff !important;
@@ -45,8 +45,8 @@ export const Header = styled.div`
 `
 
 export const AvatarRounded = styled.div`
-  height: 95px;
-  width: 95px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -54,8 +54,8 @@ export const AvatarRounded = styled.div`
   border: 2px solid #fff;
 `
 export const Avatar = styled.div`
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   background: #fff;
   background-image: url(${props => props.image});
@@ -76,7 +76,7 @@ export const FollowItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 25px;
+  width: 100%;
   cursor: pointer;
 
   span{
@@ -93,14 +93,14 @@ export const FollowButton = styled.div`
   align-items: center;
   justify-content: space-around;
   border-radius: 15px;
-  background: ${props => props.theme.palette.pink};
-  min-width: 100px;
   height: 30px;
-  padding: 0 10px;
+  padding: 0 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
-
+  background: ${props => props.theme.palette.pink};
+  width: 100%;
+  max-width: 120px;
   svg{
     margin: 0;
   }
@@ -114,6 +114,7 @@ export const Main = styled.div`
   border-top-right-radius: 35px;
   padding: 25px;
   box-shadow: 0 9px 12px 1px rgba(0,0,0,0.14), 0 3px 16px 2px rgba(0,0,0,0.12), 0 5px 6px -3px rgba(0,0,0,0.20);
+  flex-direction: column;
 
 
 `
@@ -123,4 +124,11 @@ export const Score = styled.p`
   span{
     font-weight: 800;
   }
+`
+
+export const Socials = styled.div`
+  display: flex; 
+  width: 100%;
+  justify-content: space-between;
+  color: #fff;
 `
