@@ -15,6 +15,7 @@ import ProfileConnections from '../pages/Profile/Connections'
 import Settings from '../pages/Settings'
 import Account from '../pages/Account'
 import ForgotPassord from '../pages/ForgotPassword'
+import Search from '../pages/Search'
 
 const Routes = () => (
   <Switch>
@@ -29,6 +30,7 @@ const Routes = () => (
     <Route path="/notificacoes" exact component={Notification} isPrivate land back/>
     <Route path="/indicacoes" exact component={Indications} isPrivate land back/>
     <Route path="/configuracoes" exact component={Settings} back isPrivate land />
+    <Route path="/procurar" exact component={Search} isPrivate layout="blank"/>
     <Route path="/:username" exact component={Profile} isPrivate back setting/>
     <Route path="/:username/conexoes" component={ProfileConnections} back isPrivate/>
   </Switch>
