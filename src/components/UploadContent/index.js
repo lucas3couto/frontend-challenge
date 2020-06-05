@@ -81,7 +81,6 @@ export default function AlertDialogSlide({ open, close, submit, loading }) {
 
   const processUpload = (upload) => {
     if(upload){
-      console.log('received', uploadedFile)
     const data = new FormData();
     data.append("file", upload.file, upload.name);
     api
@@ -102,7 +101,7 @@ export default function AlertDialogSlide({ open, close, submit, loading }) {
       });
     })
     .catch((res) => {
-      console.log('Err', res)
+      console.log('Err', res.response)
       updateFile(upload.id, {
         error: true
       });
