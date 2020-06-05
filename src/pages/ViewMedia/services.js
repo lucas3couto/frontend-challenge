@@ -9,4 +9,13 @@ const requestMedia = async (username, id) => {
   }
 }
 
-export { requestMedia }
+const requestDeleteMedia = async (id) => {
+  try{
+    const res = await api.delete(`api/users/content/${id}`)
+    return res
+  } catch (error){
+    return error.response
+  }
+}
+
+export { requestMedia, requestDeleteMedia }
