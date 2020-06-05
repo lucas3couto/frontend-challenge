@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  flex: 1;
   flex-direction: column;
 `
 
@@ -20,7 +19,6 @@ export const Header = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: row;
-  flex: 1;
   margin: 15px 0;
 `
 

@@ -38,10 +38,10 @@ const Dashboard = (params) => {
           }}
          />
         <Card>
-          <h1>Em Breve</h1>
+          <h1>Upload de Conteúdo</h1>
           <S.Row>
             <MdCloudUpload />
-            <p>Upload de vídeos</p>
+            <p>Faça upload de vídeos mostrando suas habilidades.</p>
           </S.Row>
         </Card>
        </S.Content>

@@ -28,6 +28,15 @@ export const Header = styled.div`
   h1{
     font-size: 18px;
   }
+
+  ${({ color, theme}) => color && `
+    background: ${theme.palette.purple.main};
+    box-shadow: none;
+    svg{
+      color: #fff;
+    }
+  
+  `}
 `
 
 export const HeaderIcon = styled.div`

@@ -2,9 +2,12 @@ import React from 'react'
 import * as S from './styled'
 import { Grid } from '@material-ui/core'
 import history from '~/services/history'
-
+import { useSelector } from 'react-redux'
 const Dashboard = ({ content, username }) => {
   
+  const { profile } = useSelector(state => state.user)
+
+
   return(
     <S.Container>
       <S.Header>
@@ -15,7 +18,7 @@ const Dashboard = ({ content, username }) => {
        </div>
       </S.Header>
       <S.Content>
-        {content.length > 0 && (
+        {content.length > 0 ? (
           <Grid container spacing={3}>
           {content.map((row, idx) => (
             <Grid item xs={4} key={idx}>
@@ -25,6 +28,14 @@ const Dashboard = ({ content, username }) => {
           </Grid>
           ))}
         </Grid>
+        ) : (
+          <React.Fragment>
+            {profile.username === username ? (
+              <p>Você ainda não postou conteúdo.</p>
+            ) : (
+              <p>O usuário ainda não postou conteúdo.</p>
+            )}
+          </React.Fragment>
         )}
       </S.Content>
     </S.Container>

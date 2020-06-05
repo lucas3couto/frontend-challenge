@@ -11,7 +11,7 @@ import UploadContent from '~/components/UploadContent'
 import { requestContent } from './services'
 import { toast } from 'react-toastify'
 
-const Default = ({ children, title, back, land, notification, setting, logo }) => {
+const Default = ({ children, title, back, land, notification, setting, logo, color }) => {
 
   const path = history.location.pathname
   const { username } = useSelector(state => state.user.profile)
@@ -22,7 +22,6 @@ const Default = ({ children, title, back, land, notification, setting, logo }) =
   const handleSubmit = async (data) => {
     setLoading(true)
     const response = await requestContent(data)
-    console.log(response)
     if(response.status === 200){
       toast.success('Conteúdo salvo com sucesso')
       setOpen(false)
@@ -35,7 +34,7 @@ const Default = ({ children, title, back, land, notification, setting, logo }) =
   return(
     <React.Fragment>
       <S.Container>
-      <S.Header>
+      <S.Header color={color}>
         <div>
           {
             logo && <S.Logo>

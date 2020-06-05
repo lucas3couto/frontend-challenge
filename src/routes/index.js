@@ -32,7 +32,7 @@ const Routes = () => (
     <Route path="/indicacoes" exact component={Indications} isPrivate land back/>
     <Route path="/configuracoes" exact component={Settings} back isPrivate land />
     <Route path="/procurar" exact component={Search} isPrivate layout="blank"/>
-    <Route path="/:username" exact component={Profile} isPrivate back setting/>
+    <Route path="/:username" exact component={Profile} isPrivate back color setting/>
     <Route path="/:username/conexoes" component={ProfileConnections} back isPrivate/>
     <Route path="/:username/midia/:id" component={Media} layout="blank" isPrivate/>
   </Switch>
