@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex: 1;
   padding: 25px;
-  cursor: pointer;
 
   @media(min-width: 768px){
    align-content: center;

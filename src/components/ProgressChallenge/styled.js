@@ -7,6 +7,7 @@ export const Container = styled.div`
   padding: 20px;
   border: 1px solid rgb(207, 216, 220);
   border-radius: 15px;
+  cursor: pointer;
 
   h1{
     font-size: 18px;
