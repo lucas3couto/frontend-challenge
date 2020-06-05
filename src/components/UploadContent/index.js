@@ -100,8 +100,9 @@ export default function AlertDialogSlide({ open, close, submit, loading }) {
         url: response.data.url
       });
     })
-    .catch((res) => {
-      console.log('Err', res.response)
+    .catch((err) => {
+      console.error(err)
+      console.log('Err', JSON.stringify(err))
       updateFile(upload.id, {
         error: true
       });
