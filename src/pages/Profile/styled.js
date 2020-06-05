@@ -115,7 +115,6 @@ export const Main = styled.div`
   padding: 25px;
   box-shadow: 0 9px 12px 1px rgba(0,0,0,0.14), 0 3px 16px 2px rgba(0,0,0,0.12), 0 5px 6px -3px rgba(0,0,0,0.20);
   flex-direction: column;
-  min-height: 100%;
 
 `
 
