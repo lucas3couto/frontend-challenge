@@ -17,7 +17,6 @@ import filesize from 'filesize'
 import { uniqueId } from 'lodash'
 import api from '~/services/api';
 import { Button } from './styled'
-import axios from 'axios'
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -84,8 +83,8 @@ export default function AlertDialogSlide({ open, close, submit, loading }) {
     if(upload){
     const data = new FormData();
     data.append("file", upload.file, upload.name);
-    axios
-    .post(`${process.env.REACT_APP_API_URL}/api/upload/file`, data, {
+    api
+    .post("api/upload/file", data, {
       onUploadProgress: e => {
         const progress = parseInt(Math.round((e.loaded * 100) / e.total));
 
@@ -102,7 +101,7 @@ export default function AlertDialogSlide({ open, close, submit, loading }) {
       });
     })
     .catch((err) => {
-      console.error(err)
+      console.error('Err.1',err.response.message)
       console.log('Err', JSON.stringify(err))
       updateFile(upload.id, {
         error: true
