@@ -4,6 +4,7 @@ import { Select } from '@material-ui/core'
 export const Container = styled.div`
   display: flex;
   min-height: 100%;
+  width: 100%;
   padding: 25px;
 
   @media(min-width: 768px){
@@ -77,6 +78,7 @@ export const Label = styled.div`
 
 export const Input = styled.input`
   border: none;
+  height: 40px;
   padding: 10px 0;
   border-bottom: 1px solid ${props => props.theme.palette.grey.main.light};
 
@@ -89,6 +91,7 @@ export const TextArea = styled.textarea`
   border: none;
   padding: 10px 0;
   border-bottom: 1px solid ${props => props.theme.palette.grey.main.light};
+  min-height: 40px;
 
   ${({ error }) => error && `
     border-bottom: 1px solid red;
@@ -103,6 +106,7 @@ export const SelectComponent = styled(Select)`
   border: none;
   padding: 10px 0 !important;
   border-bottom: 1px solid ${props => props.theme.palette.grey.main.light} !important;
+  height: 40px;
 
   ${({ error }) => error && `
     border-bottom: 1px solid red;

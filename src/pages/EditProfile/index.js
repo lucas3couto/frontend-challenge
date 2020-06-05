@@ -194,7 +194,7 @@ const EditProfile = (params) => {
             ...user,
             description: e.target.value
            })}
-          rows={2} 
+          rows={3} 
           value={user.description} 
         />
       </S.Col>
