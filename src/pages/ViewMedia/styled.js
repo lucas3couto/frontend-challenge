@@ -78,4 +78,5 @@ export const Remove = styled.div`
   color: #fff;
   border-radius: 5px;
   margin-top: 15px;
+  cursor: pointer;
 `

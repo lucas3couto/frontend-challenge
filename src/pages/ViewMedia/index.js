@@ -37,8 +37,10 @@ const Media = ({ match: { params: { id, username }}}) => {
     if(res.status === 200){
       toast.success("Conteúdo excluido")
       history.push(`/${username}`)
+    } else {
+      toast.error('Ocorreu algum erro.')
     }
-    setLoading(false)
+      setLoading(false)
       setRemove(false)
       setAnchorEl(false)
   }
@@ -90,10 +92,14 @@ const Media = ({ match: { params: { id, username }}}) => {
                {loading ? (
                  <CircularProgress />
                ) : (
-                 <React.Fragment>
+                 <div 
+                 style={{ 
+                  display: "flex",
+                  cursor: "pointer" 
+                  }}>
                     <MdDelete />
                     Excluir vídeo
-                 </React.Fragment>
+                 </div>
                )}
               </div>
             )}
