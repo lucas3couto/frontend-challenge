@@ -53,6 +53,7 @@ export const Avatar = styled.div`
   border-radius: 50%;
   background: ${props => props.theme.palette.grey.light};
   background-image: url(${props => props.image});
+  background-size: cover;
   margin-right: 15px;
 `
 
