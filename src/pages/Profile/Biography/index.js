@@ -55,7 +55,7 @@ const Dashboard = ({ profile }) => {
           </Grid>
           <Grid item xs={6}>
             <S.Item>
-            <p>Camise de Jogo</p>
+            <p>Camisa de Jogo</p>
             <span>{numberPlayer && numberPlayer}</span>
             </S.Item>
           </Grid>

@@ -11,10 +11,13 @@ import UploadContent from '~/components/UploadContent'
 import { requestContent } from './services'
 import { toast } from 'react-toastify'
 
-const Default = ({ children, title, back, land, notification, setting, logo, color }) => {
+const Default = ({ children, title, back, land, notification, setting, logo, color, computedMatch }) => {
 
+  
   const path = history.location.pathname
   const { username } = useSelector(state => state.user.profile)
+  const isUser = computedMatch.params.username === username && true
+  console.log(isUser)
 
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -58,7 +61,7 @@ const Default = ({ children, title, back, land, notification, setting, logo, col
             <MdNotifications onClick={() => history.push('/notificacoes')} />
             </React.Fragment>
           )}
-          {setting && (
+          {setting && isUser && (
             <MdSettings onClick={() => history.push('/configuracoes')} />
           )}
         </S.HeaderIcon>
