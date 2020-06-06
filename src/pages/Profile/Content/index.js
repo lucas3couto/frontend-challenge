@@ -7,7 +7,6 @@ const Dashboard = ({ content, username }) => {
   
   const { profile } = useSelector(state => state.user)
 
-
   return(
     <S.Container>
       <S.Header>
@@ -38,6 +37,7 @@ const Dashboard = ({ content, username }) => {
           </React.Fragment>
         )}
       </S.Content>
+      <span onClick={() => history.push(`/${username}/conteudo`)}>Ver todos</span>
     </S.Container>
   )
 }

@@ -17,6 +17,7 @@ import Account from '../pages/Account'
 import ForgotPassord from '../pages/ForgotPassword'
 import Search from '../pages/Search'
 import Media from '../pages/ViewMedia'
+import Contents from '../pages/Contents'
 
 const Routes = () => (
   <Switch>
@@ -35,6 +36,7 @@ const Routes = () => (
     <Route path="/:username" exact component={Profile} isPrivate back color setting/>
     <Route path="/:username/conexoes" component={ProfileConnections} back isPrivate/>
     <Route path="/:username/midia/:id" component={Media} layout="blank" isPrivate/>
+    <Route path="/:username/conteudo" exact component={Contents} isPrivate back land />
   </Switch>
 )
 

@@ -3,6 +3,12 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+
+  span{
+    font-weight: 800;
+    color: ${props => props.theme.palette.pink};
+    cursor: pointer;
+  }
 `
 
 export const Header = styled.div`
