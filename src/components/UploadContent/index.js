@@ -84,7 +84,7 @@ export default function AlertDialogSlide({ open, close, submit, loading }) {
     const data = new FormData();
     data.append("file", upload.file, upload.name);
     api
-    .post("api/upload/file", data, {
+    .post("/api/upload/file", data, {
       onUploadProgress: e => {
         const progress = parseInt(Math.round((e.loaded * 100) / e.total));
 
@@ -101,8 +101,7 @@ export default function AlertDialogSlide({ open, close, submit, loading }) {
       });
     })
     .catch((err) => {
-      console.error('Err.1',err.response.message)
-      console.log('Err', JSON.stringify(err))
+      console.log('Err.1',err)
       updateFile(upload.id, {
         error: true
       });
