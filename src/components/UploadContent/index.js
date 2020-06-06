@@ -84,7 +84,7 @@ export default function AlertDialogSlide({ open, close, submit, loading }) {
     if(upload){
     const data = new FormData();
     data.append("file", upload.file, upload.name);
-    Axios
+    api
     .post(`${process.env.REACT_APP_API_URL}/api/upload/file`, data, {
       onUploadProgress: e => {
         const progress = parseInt(Math.round((e.loaded * 100) / e.total));
