@@ -1,21 +1,28 @@
 import styled from 'styled-components'
 import ReactDatePicker from 'react-datepicker'
+import {
+  DatePicker,
+  TimePicker,
+  DateTimePicker,
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker
+} from '@material-ui/pickers';
 
-export const Container = styled(ReactDatePicker)`
-  border: 2px solid ${props => props.theme.palette.grey.light};
+export const Container = styled(KeyboardDatePicker)`
+  border: 2px solid ${props => props.theme.palette.grey.light} !important;
   border-radius: 5px;
   width: 100%;
   height: 40px;
-  padding: 0 15px;
+  padding: 0 15px !important;
   display: flex;
   flex-direction: row;
 
   &:hover{
-    border: 2px solid ${props => props.theme.palette.grey.main};
+    border: 2px solid ${props => props.theme.palette.grey.main} !important;
   }
 
   &:focus-within {
-    border: 2px solid ${props => props.theme.palette.purple.main};
+    border: 2px solid ${props => props.theme.palette.purple.main} !important;
   }
 
   ${({ error }) => error && `

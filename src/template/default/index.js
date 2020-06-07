@@ -15,9 +15,9 @@ const Default = ({ children, title, back, land, notification, setting, logo, col
 
   
   const path = history.location.pathname
-  const { username } = useSelector(state => state.user.profile)
+  const { username, registered, admin } = useSelector(state => state.user.profile)
   const isUser = computedMatch.params.username === username && true
-  console.log(isUser)
+  console.log(registered)
 
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -37,7 +37,8 @@ const Default = ({ children, title, back, land, notification, setting, logo, col
   return(
     <React.Fragment>
       <S.Container>
-      <S.Header color={color}>
+      {registered && (
+        <S.Header color={color}>
         <div>
           {
             logo && <S.Logo>
@@ -66,6 +67,7 @@ const Default = ({ children, title, back, land, notification, setting, logo, col
           )}
         </S.HeaderIcon>
       </S.Header>
+      )}
       <S.Main>
         {children}
       </S.Main>

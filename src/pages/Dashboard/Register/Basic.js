@@ -6,7 +6,8 @@ import { Form } from '@unform/web';
 import Input from '../../../components/InputSimple';
 import DatePicker from '../../../components/DatePicker'
 import { toast } from 'react-toastify'
-import { subYears } from 'date-fns';
+import Select from '~/components/Select'
+import { MenuItem } from '@material-ui/core'
 
 const Basic = ({
   position,
@@ -34,15 +35,17 @@ const Basic = ({
   const[birthDate, setBirthDate] = useState(null)
   const [height, setHeight] = useState('')
   const [weight, setWeight] = useState('')
+  const [gender, setGender] = useState('')
 
   const formRef = useRef(null);
   
   const handleSubmit = (data) => {
-    if(height && weight && birthDate){
+    if(height && weight && birthDate && gender){
       next({
         height,
         weight,
-        birthDate
+        birthDate,
+        gender
       })
     } else {
       toast.error('Preencha todos os campos.')
@@ -61,12 +64,26 @@ const Basic = ({
         <S.Card>
           <Grid container spacing={3}>
           <Grid item xs={12}>
+            <Select
+              label="Modalidade"
+              onChange={e => setGender(e.target.value)}
+              value={gender}
+            >
+              {['Masculino', 'Feminino'].map((item, idx) => (
+                <MenuItem
+                  key={idx}
+                  value={item}
+                >
+                  {item}
+                </MenuItem>
+              ))}
+            </Select>
+          </Grid>
+          <Grid item xs={12}>
             <DatePicker 
               label="Data de Nascimento"
               value={birthDate}
               onChange={date => setBirthDate(date)} 
-              placeholder="Ex: 01/01/2006"
-              maxDate={subYears(new Date(), 8)}
             />
           </Grid>
           <Grid item xs={12}>

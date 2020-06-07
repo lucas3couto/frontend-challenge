@@ -1,7 +1,8 @@
 import React from 'react'
 import * as S from './styled'
-
-import "react-datepicker/dist/react-datepicker.css";
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+import locale from "date-fns/locale/pt-BR";
 
 
 const DatePicker = ({
@@ -11,19 +12,27 @@ const DatePicker = ({
   ...rest
 }) => {
 
+  const getMaxDate = () => {
+    let data = new Date();
+    data.setFullYear(data.getFullYear() - 6);
+    return data
+  }
+
   return(
     <React.Fragment>
       <S.Label>
       {label}
     </S.Label>
-    <S.Container 
-      selected={value} 
-      onChange={date => onChange(date)} 
-      locale="pt-BR"
-      dateFormat="dd/MM/yyyy"
-      {...rest}
-    />
-    </React.Fragment>
+
+    <MuiPickersUtilsProvider locale={locale} utils={DateFnsUtils}>
+      <S.Container 
+        onChange={date => onChange(date)} 
+        format="dd/MM/yyyy"
+        value={value}
+        maxDate={getMaxDate()}
+      />
+    </MuiPickersUtilsProvider>
+      </React.Fragment>
   )
 }
 
