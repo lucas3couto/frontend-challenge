@@ -31,7 +31,7 @@ const Contents = ({ match: { params }}) => {
             <Grid container spacing={3}>
             {content.map((row, idx) => (
               <Grid item xs={12} md={6}>
-              <video height="100%" width="100%" onClick={() => history.push(`/${username}/midia/${row._id}`)} style={{ cursor: "pointer"}}>
+              <video height="100%" width="100%" onClick={() => history.push(`/${params.username}/midia/${row._id}`)} style={{ cursor: "pointer"}}>
                 <source src={row.url} type={row.mime_type} />
               </video>
               <h1>{row.title}</h1>

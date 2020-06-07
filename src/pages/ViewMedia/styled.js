@@ -40,11 +40,35 @@ position: absolute;
 bottom: 0;
 width: 100%;
 align-items: center;
+z-index: 999;
 
 h1{
   font-size: 14px;
 }
   
+`
+
+export const Like = styled.div`
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  span{
+    color: #fff;
+    margin-right: 5px;
+    font-weight: 800;
+  }
+
+  svg{
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  ${({ like, theme }) => like && `
+    svg{
+      color: ${theme.palette.pink};
+    }
+  `}
 `
 
 export const Avatar = styled.div`
@@ -55,6 +79,7 @@ export const Avatar = styled.div`
   background-image: url(${props => props.image});
   background-size: cover;
   margin-right: 15px;
+  cursor: pointer;
 `
 
 export const Menu = styled.div`

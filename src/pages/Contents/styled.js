@@ -37,13 +37,13 @@ export const Main = styled.div`
   flex-direction: row;
 
   h1{
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 5px;
 
   }
 
   p{
-    font-size: 14px;
+    font-size: 12px;
     color: ${props => props.theme.palette.grey.main};
     font-weight: 600;
     margin-bottom: 5px;

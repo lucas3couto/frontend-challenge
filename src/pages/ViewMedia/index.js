@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React , { useState, useEffect }from 'react'
 import * as S from './styled'
-import { requestMedia, requestDeleteMedia } from './services'
+import { requestMedia, requestDeleteMedia, requestLike, requestUnLike } from './services'
 import Loading from '~/components/Loading'
 import { FaArrowLeft, FaEllipsisV } from 'react-icons/fa'
 import history from '~/services/history'
@@ -10,6 +10,7 @@ import { MdDelete } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { CircularProgress } from '@material-ui/core'
+import { IoMdTrophy } from 'react-icons/io'
 
 const Media = ({ match: { params: { id, username }}}) => {
 
@@ -17,7 +18,7 @@ const Media = ({ match: { params: { id, username }}}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [remove, setRemove] = useState(false)
   const [loading, setLoading] = useState(false)
-
+  const [like, setLike] = useState(false)
   const open = Boolean(anchorEl);
 
   const { profile } = useSelector(state => state.user)
@@ -30,6 +31,26 @@ const Media = ({ match: { params: { id, username }}}) => {
   useEffect(() => {
     fetch()
   },[])
+
+  const handleLike = async () => {
+    if(user.like){
+      requestUnLike(username, id)
+      user.like = false
+      setUser({
+        ...user,
+        like: false,
+        likes: user.likes -1
+      })
+    } else {
+      requestLike(username, id)
+      user.like = true
+      setUser({
+        ...user,
+        like: true,
+        likes: user.likes + 1
+      })
+    }
+  }
 
   const handleDelete = async () => {
     setLoading(true)
@@ -116,11 +137,15 @@ const Media = ({ match: { params: { id, username }}}) => {
             height: "100%"
           }}
         >
-          <S.Avatar image={user.avatar} />
+          <S.Avatar onClick={() => history.push(`/${username}`)} image={user.avatar} />
           <div>
             <h1>{user.name}</h1>
           </div>
         </div>
+        <S.Like like={user.like && true}> 
+          {user.likes > 0 && <span>{user.likes}</span>}
+          <IoMdTrophy onClick={() => handleLike()} />
+        </S.Like>
       </S.Bottom>
         <S.Video controls autoPlay>
         <source src={user.content.url} type={user.content.mime_type}/>
