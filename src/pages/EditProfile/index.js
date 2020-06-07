@@ -156,7 +156,7 @@ const EditProfile = (params) => {
           <S.Username>{user.username}</S.Username>
           <S.Upload>
           <S.Link>
-            Alternar foto do perfil
+            Alterar foto do perfil
           </S.Link>
           <input type="file" name="file" onChange={(e) => handleUpload(e.target.files[0])} />
           </S.Upload>

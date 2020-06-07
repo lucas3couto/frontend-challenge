@@ -1,9 +1,11 @@
 import React from 'react'
 import * as S from './styled'
 
-const Card = ({ children }) => {
+const Card = ({ children, ...props }) => {
   return(
-    <S.Card>
+    <S.Card
+    {...props}
+    >
       {children}
     </S.Card>
   )

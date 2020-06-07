@@ -68,7 +68,7 @@ export const Username = styled.h1`
 export const Link = styled.div`
   color:${props => props.theme.palette.purple.main};
   font-weight: 600;
-  cursor: pointer;
+  cursor: pointer !important;
 `
 
 export const Label = styled.div`
@@ -134,6 +134,7 @@ export const Button = styled.div`
 
 export const Upload = styled.div`
   position: relative;
+    cursor: pointer !important;
   input{
     cursor: pointer !important;
     opacity: 0;

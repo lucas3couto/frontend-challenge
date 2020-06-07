@@ -10,7 +10,7 @@ import Card from '../../components/Card'
 
 const Dashboard = (params) => {
 
-  const { registered, admin } = useSelector(state => state.user.profile)
+  const { registered, admin, avatar } = useSelector(state => state.user.profile)
   const [indications, setIndications] = useState([])
 
   const fetchIndications = async () => {
@@ -37,13 +37,17 @@ const Dashboard = (params) => {
             marginBottom: 25
           }}
          />
-        <Card>
-          <h1>Upload de Conteúdo</h1>
+        {!avatar && (
+          <Card
+          onClick={() => history.push('/perfil/editar')}
+        >
+          <h1>Adicione uma foto de perfil</h1>
           <S.Row>
             <MdCloudUpload />
-            <p>Faça upload de vídeos mostrando suas habilidades.</p>
+            <p>Escolha uma foto para adicionar ao seu perfil.</p>
           </S.Row>
         </Card>
+        )}
        </S.Content>
       </S.Container>
       {!registered && !admin && (
