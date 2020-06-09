@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   flex: 1;
   flex-direction: column;
-  height: 100%;
+  height: 100% !important;
   background: ${props => props.theme.palette.purple.main};
 `
 

@@ -53,7 +53,8 @@ const Register = (params) => {
       const response = await dispatch(updateProfileRequest({
         playerData,
         birthDate: playerData.birthDate,
-        registered: true
+        registered: true,
+        gender: playerData.gender,
       }))
       if(response.type === "@user/UPDATE_PROFILE_REQUEST"){
         history.push("/")

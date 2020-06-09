@@ -38,9 +38,10 @@ export const Header = styled.div`
   }
 
   h1{
-    font-size: 20px;
+    font-size: 1rem;
     color: #fff;
     margin: 10px 0 5px 0;
+    text-align: center;
   }
 `
 
