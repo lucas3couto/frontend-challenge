@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as S from './styled'
 import {} from 'react-icons'
 import { MdPerson, MdSettings, MdDashboard, MdNotifications, MdAdd, MdEvent, MdSearch } from 'react-icons/md'
@@ -8,8 +8,9 @@ import history from '../../services/history'
 import { useSelector } from 'react-redux'
 import Logo from '../../assets/img/icon.svg'
 import UploadContent from '~/components/UploadContent'
-import { requestContent } from './services'
+import { requestContent, requestNotifications } from './services'
 import { toast } from 'react-toastify'
+import Notification from '~/components/Notification'
 
 const Default = ({ children, title, back, land, notification, setting, logo, color, computedMatch }) => {
 
@@ -17,10 +18,12 @@ const Default = ({ children, title, back, land, notification, setting, logo, col
   const path = history.location.pathname
   const { username, registered, admin } = useSelector(state => state.user.profile)
   const isUser = computedMatch.params.username === username && true
-  console.log(registered)
 
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [notifications, setNotifications] = useState(null)
+
+
 
   const handleSubmit = async (data) => {
     setLoading(true)
@@ -33,6 +36,15 @@ const Default = ({ children, title, back, land, notification, setting, logo, col
     }
     setLoading(false)
   }
+
+  const handleNotification = async () => {
+    const res = await requestNotifications()
+    setNotifications(res.data)
+  }
+
+  useEffect(() => {
+    handleNotification()
+  },[])
 
   return(
     <React.Fragment>
@@ -59,7 +71,7 @@ const Default = ({ children, title, back, land, notification, setting, logo, col
           {notification && (
             <React.Fragment>
               <FaSearch size={18} style={{ marginRight: 20}} onClick={() => history.push('/procurar')} />
-            <MdNotifications onClick={() => history.push('/notificacoes')} />
+              <Notification number={notifications && notifications.length} onClick={() => history.push('/notificacoes')} />
             </React.Fragment>
           )}
           {setting && isUser && (

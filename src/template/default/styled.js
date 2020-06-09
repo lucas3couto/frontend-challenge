@@ -40,7 +40,8 @@ export const Header = styled.div`
 `
 
 export const HeaderIcon = styled.div`
-
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
 
   svg{

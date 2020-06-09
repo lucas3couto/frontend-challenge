@@ -9,4 +9,13 @@ const requestContent = async (content) => {
   }
 }
 
-export { requestContent }
+const requestNotifications = async () => {
+  try{
+    const res = await api.get('api/notifications')
+    return res
+  } catch (error){
+    return error.response
+  }
+}
+
+export { requestContent, requestNotifications }
