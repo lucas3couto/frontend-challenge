@@ -26,15 +26,16 @@ const Profile = ({ match: { params: { username }}}) => {
     setProfile(res.data)
     setLoading(false)
   }
-
+  
   useEffect(() => {
     fetchProfile()
   },[])
-
+  
   const handlChange = (param) => {
     history.push(`${profile.username}/conexoes/${param}`)
   }
-
+  
+  console.log('Prof',profile)
 
   const handleFollow = async () => {
     if(profile.isFollowing){

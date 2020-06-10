@@ -27,7 +27,7 @@ const Default = ({ children, title, back, land, notification, setting, logo, col
 
   const handleSubmit = async (data) => {
     setLoading(true)
-    const response = await requestContent(data)
+    const response = await requestContent({ ...data })
     if(response.status === 200){
       toast.success('Conteúdo salvo com sucesso')
       setOpen(false)

@@ -7,6 +7,8 @@ const Dashboard = ({ content, username }) => {
   
   const { profile } = useSelector(state => state.user)
 
+  console.log(content)
+
   return(
     <S.Container>
       <S.Header>

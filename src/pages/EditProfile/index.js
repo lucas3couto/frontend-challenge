@@ -204,7 +204,7 @@ const EditProfile = (params) => {
         </S.Title>
       </S.Row>
       <S.Col item xs={12}>
-           <S.Label>Alture</S.Label>
+           <S.Label>Altura</S.Label>
             <S.Input 
               label="Altura"
               name="height" 
