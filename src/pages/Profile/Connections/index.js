@@ -6,6 +6,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { requestFollowing, requestFollowers, requestAddFollowing, requestUnFollowing } from './services'
 import history from '../../../services/history'
 import { useSelector } from 'react-redux'
+import Default from '~/assets/img/default.png'
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -123,7 +124,7 @@ const Connections = ({ location: { pathname } }) => {
             <S.Info
               onClick={() => history.push(`/${item.username}`)}
             >
-              <S.Avatar image={item.avatar && item.avatar.url} />
+              <S.Avatar image={item.avatar ? item.avatar.url : Default} />
               <div
                 style={{
                   display: "flex",
@@ -170,7 +171,7 @@ const Connections = ({ location: { pathname } }) => {
             <S.Info
               onClick={() => history.push(`/${item.username}`)}
             >
-              <S.Avatar image={item.avatar && item.avatar.url} />
+              <S.Avatar image={item.avatar ? item.avatar.url : Default} />
               <div
                 style={{
                   display: "flex",

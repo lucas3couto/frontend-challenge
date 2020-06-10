@@ -4,6 +4,7 @@ import { requestFeed, requestLike, requestUnLike } from './services'
 import Loading from '~/components/Loading'
 import history from '~/services/history'
 import { IoMdTrophy } from 'react-icons/io'
+import Default from '~/assets/img/default.png'
 
 const Feed = (params) => {
 
@@ -51,7 +52,7 @@ const Feed = (params) => {
                 key={idx}
               >
                 <S.CardHeader>
-                  <S.Avatar image={user.avatar && user.avatar.url} />
+                  <S.Avatar image={user.avatar ? user.avatar.url : Default} />
                   <S.Info>
                     <h1
                       onClick={() => history.push(`/${user.username}`)}

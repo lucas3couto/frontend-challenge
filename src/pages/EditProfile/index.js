@@ -14,6 +14,7 @@ import { updateProfileRequest } from '../../store/modules/user/actions'
 import { useDispatch } from 'react-redux'
 import { uniqueId } from "lodash";
 import filesize from "filesize";
+import Default from '~/assets/img/default.png'
 
 const EditProfile = (params) => {
 
@@ -149,7 +150,7 @@ const EditProfile = (params) => {
       <S.Container>
       <S.Content>
       <S.Row>
-        <S.Avatar loading={loadingAvatar} image={user.avatar && user.avatar.url}>
+        <S.Avatar loading={loadingAvatar} image={user.avatar ? user.avatar.url : Default}>
         {loadingAvatar && <CircularProgress />}
         </S.Avatar>
         <S.Col>

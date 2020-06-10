@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { CircularProgress } from '@material-ui/core'
 import { IoMdTrophy } from 'react-icons/io'
+import Default from '~/assets/img/default.png'
 
 const Media = ({ match: { params: { id, username }}}) => {
 
@@ -137,7 +138,7 @@ const Media = ({ match: { params: { id, username }}}) => {
             height: "100%"
           }}
         >
-          <S.Avatar onClick={() => history.push(`/${username}`)} image={user.avatar} />
+          <S.Avatar onClick={() => history.push(`/${username}`)} image={user.avatar || Default} />
           <div>
             <h1>{user.name}</h1>
           </div>

@@ -9,6 +9,7 @@ import Loading from '../../components/Loading'
 import { useSelector } from 'react-redux'
 import history from '../../services/history'
 import Content from './Content'
+import Default from '~/assets/img/default.png'
 
 
 const Profile = ({ match: { params: { username }}}) => {
@@ -69,7 +70,7 @@ const Profile = ({ match: { params: { username }}}) => {
           <S.Content>
           <S.Header>
         <S.AvatarRounded>
-        <S.Avatar image={profile.avatar && profile.avatar.url} />
+        <S.Avatar image={profile.avatar ? profile.avatar.url : Default} />
         </S.AvatarRounded>
         <h1>
           {`${profile.firstName} ${profile.lastName}`}

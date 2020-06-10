@@ -8,6 +8,7 @@ import Search from '~/components/Search'
 import { requestSearch, requestMostPopulars } from './services'
 import { useSelector } from 'react-redux'
 import Loading from '~/components/Loading'
+import Default from '~/assets/img/default.png'
 
 const Feed = (params) => {
 
@@ -50,7 +51,7 @@ const Feed = (params) => {
     onClick={() => history.push(`/${row.username}`)}
     key={idx}
   >
-  <S.Avatar image={row.avatar} />
+  <S.Avatar image={row.avatar || Default} />
   <S.Infos>
     <h1>{`${row.name}`}</h1>
     <p>@{row.username}</p>
@@ -66,7 +67,7 @@ const Feed = (params) => {
           onClick={() => history.push(`/${row.username}`)}
           key={idx}
         >
-        <S.Avatar image={row.avatar} />
+        <S.Avatar image={row.avatar || Default} />
         <S.Infos>
           <h1>{`${row.name}`}</h1>
           <p>@{row.username}</p>

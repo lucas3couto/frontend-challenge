@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import * as S from './styled'
 import { requestNotifications, requestUpdateNotifications } from './services'
 import Loading from '~/components/Loading'
+import Default from '~/assets/img/default.png'
 
 const Notification = (params) => {
   
@@ -33,7 +34,7 @@ const Notification = (params) => {
           {notifications.length > 0 ? notifications.map(({ _id, who, content }, idx) => (
             <S.Row key={idx} onClick={() => handleUpdate(_id)}>
               <S.AvatarBlock>
-              <S.Avatar image={who.avatar} />
+              <S.Avatar image={who.avatar || Default} />
               </S.AvatarBlock>
               <p><span>{who.name}</span> {content}</p>
             </S.Row>
