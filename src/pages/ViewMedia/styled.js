@@ -6,11 +6,12 @@ export const Container = styled.div`
   background: #000;
   align-items: center;
   justify-content: center;
+  height: 100%;
 `
 
 export const Video = styled.video`
   width: 100%;
-  height: 100%;
+  max-width: 500px;
 `
 
 export const Header = styled.div`

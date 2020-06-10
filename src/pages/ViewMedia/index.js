@@ -139,7 +139,12 @@ const Media = ({ match: { params: { id, username }}}) => {
           }}
         >
           <S.Avatar onClick={() => history.push(`/${username}`)} image={user.avatar || Default} />
-          <div>
+          <div
+            style={{
+              cursor: "pointer"
+            }}
+            onClick={() => history.push(`/${user.username}`)}
+          >
             <h1>{user.name}</h1>
           </div>
         </div>
