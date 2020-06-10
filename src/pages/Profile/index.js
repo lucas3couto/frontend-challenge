@@ -81,7 +81,7 @@ const Profile = ({ match: { params: { username }}}) => {
         >
           {profile.admin ? (
             <React.Fragment>
-              <p>Administrador</p>
+              <p>Drafterr</p>
               <FaCheckCircle />
             </React.Fragment>
           ) : <S.Score>Score: <span>{profile.score}</span></S.Score>}
