@@ -44,7 +44,9 @@ const Feed = (params) => {
       <S.Main>
         {feed ? (
           <S.List>
-            {feed.map(({_id, likes, like, user, mime_type, title, description, url}, idx) => (
+            {feed.length > 0 ? (
+              <React.Fragment>
+                {feed.map(({_id, likes, like, user, mime_type, title, description, url}, idx) => (
               <S.Card
                 key={idx}
               >
@@ -81,6 +83,10 @@ const Feed = (params) => {
                 </S.CardContent>
               </S.Card>
             ))}
+              </React.Fragment>
+            ) : (
+              <p>Nenhuma publicação no momento</p>
+            )}
           </S.List>
         ) : (
           <Loading />
