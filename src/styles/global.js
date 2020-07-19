@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import 'react-perfect-scrollbar/dist/css/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
@@ -43,7 +42,7 @@ export default createGlobalStyle`
   }
 
 .rdw-editor-wrapper {
-    border: 1px solid ${props => props.theme.palette.background} !important;
+    border: 1px solid ${(props) => props.theme.palette.background} !important;
     border-radius: 5px;
     padding: 3px;
   }

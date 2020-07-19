@@ -1,23 +1,30 @@
-import api from '../../services/api'
+import api from '../../services/api';
 
-const requestPositions = async () => {
-  const res = await api.get('/api/admin/positions')
-  return res
+async function getPlates() {
+  try {
+    const res = await api.get('/vehicle');
+    return res;
+  } catch (err) {
+    return err.response;
+  }
 }
 
-const requestTeams = async () => {
-  const res = await api.get('/api/admin/teams')
-  return res
+async function addPlates(data) {
+  try {
+    const res = await api.post('/vehicle', data);
+    return res;
+  } catch (err) {
+    return err.response;
+  }
 }
 
-const requestBrands = async () => {
-  const res = await api.get('/api/admin/brands')
-  return res
+async function deletePlates(id) {
+  try {
+    const res = await api.delete(`/vehicle/${id}`);
+    return res;
+  } catch (err) {
+    return err.response;
+  }
 }
 
-const requestIndications = async () => {
-  const res = await api.get("api/indications")
-  return res
-}
-
-export { requestPositions, requestTeams, requestBrands, requestIndications }
+export { getPlates, addPlates, deletePlates };

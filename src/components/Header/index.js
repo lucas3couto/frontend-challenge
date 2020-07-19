@@ -1,24 +1,13 @@
-import React from 'react'
-import * as S from './styled'
+import React from 'react';
+import * as S from './styled';
+import { MdMenu, MdMoreVert } from 'react-icons/md';
 
-const Header = ({
-  left,
-  middle,
-  right
-}) => {
-  return(
-    <S.Header>
-        <S.Item>
-          {left}
-        </S.Item>
-        <S.Item>
-          {middle}
-        </S.Item>
-        <S.Item>
-          {right}
-        </S.Item>
-    </S.Header>
-  )
+export default function Header({ title }) {
+  return (
+    <S.Wrapper>
+      <MdMenu />
+      <h1>{title}</h1>
+      <MdMoreVert />
+    </S.Wrapper>
+  );
 }
-
-export default Header

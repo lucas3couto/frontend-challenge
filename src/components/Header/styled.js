@@ -1,31 +1,25 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Header = styled.div`
+export const Wrapper = styled.div`
+  background: ${(props) => props.theme.palette.purple.main};
   display: flex;
-  width: 100%;
-  flex-direction: row;
-  height: 60px;
-  justify-content: space-between;
+  height: 66px;
   align-items: center;
   padding: 0 25px;
-  background: #fff;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+  justify-content: space-between;
 
-  z-index: 9999;
-  
-  svg{
-    color: ${props => props.theme.palette.grey.main};
+  h1 {
+    font-size: 1.2rem;
+    color: #fff;
   }
 
-  h1{
-    font-size: 18px;
+  svg {
+    font-size: 24px;
+    color: #fff;
+
+    &:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
   }
-`
-
-export const Item = styled.div`
-
-  svg{
-    font-size: 20px;
-  }
-
-`
+`;

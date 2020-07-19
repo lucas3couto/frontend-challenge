@@ -1,39 +1,26 @@
 export function signInRequest(values) {
-  const { email, password } = values
+  const { email, password } = values;
   return {
-      type: '@auth/SIGN_IN_REQUEST',
-      payload: { email, password }
-  }
+    type: '@auth/SIGN_IN_REQUEST',
+    payload: { email, password },
+  };
 }
 
-export function signInSuccess(token, user, social, address) {
+export function signInSuccess(token) {
   return {
-      type: '@auth/SIGN_IN_SUCCESS',
-      payload: { token, user, social, address }
-  }
+    type: '@auth/SIGN_IN_SUCCESS',
+    payload: { token },
+  };
 }
 
 export function signFailure() {
   return {
-      type: '@auth/SIGN_FAILURE'
-  }
+    type: '@auth/SIGN_FAILURE',
+  };
 }
 
 export function signOut() {
   return {
-      type: '@auth/SIGN_OUT'
-  }
-}
-
-export function signUpRequest(data, indicated) {
-  return {
-    type: "@auth/SIGN_UP_REQUEST",
-    payload: { data, indicated}
-  };
-}
-
-export function signUpSuccess() {
-  return {
-    type: "@auth/SIGN_UP_SUCCESS",
+    type: '@auth/SIGN_OUT',
   };
 }

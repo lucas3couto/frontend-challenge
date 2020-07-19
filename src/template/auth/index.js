@@ -1,13 +1,6 @@
-import React from 'react'
-import * as S from './styled'
+import React from 'react';
+import * as S from './styled';
 
-const Auth = ({ children }) => {
-  
-  return(
-    <S.Container>
-      {children}
-    </S.Container>
-  )
+export default function Default({ children }) {
+  return <S.Wrapper>{children}</S.Wrapper>;
 }
-
-export default Auth

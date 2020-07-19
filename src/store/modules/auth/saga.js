@@ -1,49 +1,30 @@
-import { takeLatest, call, put, all } from 'redux-saga//effects'
-import api from '../../../services/api'
-import history from '../../../services/history'
-import { toast } from 'react-toastify'
+import { takeLatest, call, put, all } from 'redux-saga//effects';
+import api from '../../../services/api';
+import history from '../../../services/history';
+import { toast } from 'react-toastify';
 
-import { signInSuccess, signFailure, signUpSuccess } from "./actions";
+import { signInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
-    const response = yield call(api.post, "api/session", {
+    const response = yield call(api.post, 'auth', {
       email,
-      password
+      password,
     });
 
-    const { token, user, social, address, } = response.data;
+    const { token } = response.data.data;
+
+    console.log(token);
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    yield put(signInSuccess(token, user, social, address));
+    yield put(signInSuccess(token));
 
-    history.push("/");
+    history.push('/');
   } catch (err) {
-    toast.error("Falha na autenticação, verifique seus dados");
-    yield put(signFailure());
-  }
-}
-
-export function* signUp({ payload }) {
-  try {
-    const { firstName, lastName, email, password, confirmPassword } = payload.data;
-    const { indicated } = payload
-    yield call(api.post, `api/users?indicated=${indicated}`, {
-        firstName, 
-        lastName,
-        email,
-        password,
-        confirmPassword
-    });
-    toast.success('Pronto! Você foi cadastrado com sucesso.')
-    yield put(signUpSuccess())
-    history.push("/");
-  } catch (err) {
-    toast.error("Falha no cadastro, verifique seus dados");
-    history.push("/cadastrar");
+    toast.error('Falha na autenticação, verifique seus dados');
     yield put(signFailure());
   }
 }
@@ -59,12 +40,11 @@ export function setToken({ payload }) {
 }
 
 export function signOut() {
-  history.push("/entrar");
+  history.push('/entrar');
 }
 
 export default all([
-  takeLatest("persist/REHYDRATE", setToken),
-  takeLatest("@auth/SIGN_IN_REQUEST", signIn),
-  takeLatest("@auth/SIGN_OUT", signOut),
-  takeLatest("@auth/SIGN_UP_REQUEST", signUp),
+  takeLatest('persist/REHYDRATE', setToken),
+  takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+  takeLatest('@auth/SIGN_OUT', signOut),
 ]);
