@@ -1,25 +1,24 @@
-## Projeto: GoBarber (WEB)
+## Projeto: Frontend-challenge (SPA)
 
-Go barber foi desenvolvido durante o BootCamp da RocketSeat.
-
-Trata-se de uma aplicação de agendamento de horários para um barbearia.
-
-A versão web exibe ao prestador de serviço os horários de sua agenda.
-
-A versão mobile (https://github.com/leonardodelira/GoBarber-mobile) permite o usuário escolher o dia, horário e prestador para executar o serviço.
-
-A api foi desenvolvida com NodeJs + Express, mais detalhes em:
-https://github.com/leonardodelira/GoBarber-backend
+Esse projeto foi desenvolvido para um processo de avaliação.
 
 ### Principais conceitos aplicados:
 - React
+- Redux
 - Hooks
-- Rotas
 - Autenticacao
 - Styled Components
-- Reactotron
-- Redux
 - Sagas
-- Requisições http
+- Requisições http com Axios
 
-![GoBarber](https://github.com/leonardodelira/GoBarber-frontend/blob/master/gobarber.png)
+Obs: Esse projeto necessita do backend oferecido pelo desafio.
+
+### Como executar o projeto
+
+#### 1- Instalação das dependências
+Para instalar as dependências, acesse o diretório raíz do projeto e execute o colando "yarn".
+
+
+#### 2- Inicie o servidor
+Para iniciar o servidor, execute o comando "yarn start" na raíz do projeto. Por padrão, será iniciado na porta 3000.
+
