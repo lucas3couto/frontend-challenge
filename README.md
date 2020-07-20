@@ -16,9 +16,9 @@ Obs: Esse projeto necessita do backend oferecido pelo desafio.
 ### Como executar o projeto
 
 #### 1- Instalação das dependências
-Para instalar as dependências, acesse o diretório raíz do projeto e execute o comando "yarn".
+Para instalar as dependências, acesse o diretório raíz do projeto e execute o comando `yarn`.
 
 
 #### 2- Inicie o servidor
-Para iniciar o servidor, execute o comando "yarn start" na raíz do projeto. Por padrão, será iniciado na porta 3000.
+Para iniciar o servidor, execute o comando `yarn start` na raíz do projeto. Por padrão, será iniciado na porta 3000.
 
