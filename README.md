@@ -16,7 +16,7 @@ Obs: Esse projeto necessita do backend oferecido pelo desafio.
 ### Como executar o projeto
 
 #### 1- Instalação das dependências
-Para instalar as dependências, acesse o diretório raíz do projeto e execute o colando "yarn".
+Para instalar as dependências, acesse o diretório raíz do projeto e execute o comando "yarn".
 
 
 #### 2- Inicie o servidor

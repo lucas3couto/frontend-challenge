@@ -84,7 +84,11 @@ export default function Dashboard() {
           <S.Header>
             <S.Title>Adicionar novo veículo</S.Title>
             <S.Find onSubmit={handleSubmit} ref={formRef}>
-              <Input name="plate" placeholder="Placa" />
+              <Input
+                style={{ width: '100%' }}
+                name="plate"
+                placeholder="Placa"
+              />
               <button>
                 <MdAdd size={24} />
               </button>
