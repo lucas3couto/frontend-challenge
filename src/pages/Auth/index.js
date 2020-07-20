@@ -55,7 +55,9 @@ export default function Auth() {
             marginBottom: 15,
           }}
         />
-        <Button fullwidth>Entrar</Button>
+        <Button loading={loading} fullwidth>
+          Entrar
+        </Button>
       </S.FormCard>
     </S.Wrapper>
   );
